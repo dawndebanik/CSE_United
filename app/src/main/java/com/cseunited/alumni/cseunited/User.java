@@ -1,6 +1,5 @@
 package com.cseunited.alumni.cseunited;
 
-import java.net.UnknownServiceException;
 
 /**
  * User base class for a generic user on the site.
@@ -8,10 +7,10 @@ import java.net.UnknownServiceException;
  */
 
 abstract class User {
-    String name;        //name of the user
-    String password;    //the password
-    int userID;         //userID used in login
-    int position;       //1 indicates an alumnus, 2 a teacher and 3, a student (see Constants.java)
+    private String name;        //name of the user
+    private String password;    //the password
+    private int userID;         //userID used in login
+    private int position;       //1 indicates an alumnus, 2 a teacher and 3, a student (see Constants.java)
 
     /**
      * Constructor for the User base class.
@@ -26,6 +25,26 @@ abstract class User {
         this.password = password;
         this.userID = userID;
         this.position = position;
+    }
+
+    /**
+     * Getters and Setters.
+     */
+
+    String getName() {
+        return name;
+    }
+
+    void setPassword(String password) {
+        this.password = password;
+    }
+
+    int getUserID() {
+        return userID;
+    }
+
+    int getPosition() {
+        return position;
     }
 }
 
