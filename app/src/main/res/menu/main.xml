@@ -5,6 +5,7 @@
         android:id="@+id/action_theme"
         android:orderInCategory="100"
         android:title="theme"
+
         app:showAsAction="never" />
 
 </menu>

@@ -39,7 +39,7 @@
         android:hint="Retype Passsword"
         android:padding="20dp"
         android:paddingTop="50dp"
-        android:paddingBottom="80dp"
+        android:paddingBottom="100dp"
         android:inputType="textPassword"
         android:id="@+id/retypepassword"/>
     <Button

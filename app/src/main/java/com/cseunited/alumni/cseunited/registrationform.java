@@ -19,6 +19,7 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
     private EditText passwordEditText;
     private EditText retypepapasswordEditText;
     private Button signupButton;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regform);
