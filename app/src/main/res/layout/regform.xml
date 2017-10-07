@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:padding="20dp"
+        android:paddingTop="50dp"
+        android:inputType="textPersonName"
+        android:id="@+id/name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile Number"
+        android:padding="20dp"
+        android:paddingTop="50dp"
+        android:inputType="number"
+        android:id="@+id/number"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="EmailAddress"
+        android:padding="20dp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/emailid"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Passsword"
+        android:padding="20dp"
+        android:paddingTop="50dp"
+        android:inputType="textPassword"
+        android:id="@+id/regpassword"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Retype Passsword"
+        android:padding="20dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="100dp"
+        android:inputType="textPassword"
+        android:id="@+id/retypepassword"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Sign Up"
+        android:id="@+id/signup"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:textStyle="bold"/>
+
+</LinearLayout>
