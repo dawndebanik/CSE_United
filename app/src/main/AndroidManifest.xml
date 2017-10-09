@@ -17,8 +17,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".registrationform"
-            android:label="Registration"/>
+        <activity
+            android:name=".registrationform"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".UsersListActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
