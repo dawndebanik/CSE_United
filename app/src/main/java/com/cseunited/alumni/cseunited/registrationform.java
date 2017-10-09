@@ -149,8 +149,6 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
             // Snack Bar to show error message that record already exists
             Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
         }
-
-
     }
 
     /**

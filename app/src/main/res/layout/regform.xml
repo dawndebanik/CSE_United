@@ -84,7 +84,6 @@
                 android:maxLines="1"
                 android:textColor="@android:color/white" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/appCompatButtonRegister"
             android:layout_width="match_parent"
@@ -92,7 +91,6 @@
             android:layout_marginTop="40dp"
             android:background="@color/colorTextHint"
             android:text="@string/text_register" />
-
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/appCompatTextViewLoginLink"
             android:layout_width="fill_parent"

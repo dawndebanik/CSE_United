@@ -12,5 +12,4 @@ public class UsersListActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
     }
-
 }

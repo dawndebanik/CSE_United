@@ -186,7 +186,6 @@ public class MainActivity extends AppCompatActivity
             emptyInputEditText();
             startActivity(accountsIntent);
 
-
         } else {
             // Snack Bar to show success message that record is wrong
             //Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
