@@ -1,6 +1,8 @@
 package com.cseunited.alumni.cseunited;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -23,6 +25,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import helpers.InputValidation;
 
 public class MainActivity extends AppCompatActivity
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     private AppCompatTextView textViewLinkRegister;
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
-
+    private TextInputEditText calender;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,10 +65,9 @@ public class MainActivity extends AppCompatActivity
     private void initViews() {
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
-
+        calender=(TextInputEditText)findViewById(R.id.batchDetails);
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
-
         textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
 

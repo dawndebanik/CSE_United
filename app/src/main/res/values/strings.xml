@@ -8,7 +8,7 @@
     <string name="hint_password">Password</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="text_login">Login</string>
-    <string name="text_register">Register</string>
+    <string name="text_register">Register Me</string>
     <string name="error_message_name">Enter Full Name</string>
     <string name="error_message_email">Enter Valid Email</string>
     <string name="error_message_age">Enter Age</string>
@@ -22,5 +22,10 @@
     <string name="action_settings">Settings</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Android Tutorials Hub</string>
+    <string name="lets_get_you_started">Lets Get You Started</string>
+    <string name="all_the_fields_are_compulsory_please_bear_with_us">*All the fields are compulsory. Please bear with us</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="by_registering_i_hearby_agree_to_the_terms_and_conditions_and_also_to_the_private_policy">terms and conditions</string>
 
 </resources>
