@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/question_detail"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.cseunited.alumni.cseunited.QuestionDetail"
+    tools:showIn="@layout/activity_question_detail"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/questionTitle"
+        android:layout_width="369dp"
+        android:layout_height="50dp"
+        android:text="@string/rand_ques_title"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="364dp"
+        android:layout_height="53dp"
+        android:text="@string/rand_ques"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="66dp" />
+
+    <Button
+        android:id="@+id/addReply"
+        android:layout_width="350dp"
+        android:layout_height="42dp"
+        android:capitalize="words"
+        android:text="@string/add_reply"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="447dp" />
+
+    <EditText
+        android:id="@+id/reply"
+        android:layout_width="351dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/reply"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="404dp" />
+
+</android.support.constraint.ConstraintLayout>
