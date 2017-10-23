@@ -36,4 +36,31 @@
     <string name="rand_ques_title">Question Title</string>
     <string name="rand_ques">Random question</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="titles">
+        <item>Dress Code</item>
+        <item>Language Code</item>
+        <item>Behavioural Code</item>
+    </string-array>
+    <string-array name="descriptions">
+        <item>"Clothing is transformative."
+
+              When you put something really beautiful on,you feel something.It indicates the kind of person one is on the inside.
+              The language of clothing is high symbolism.CSE United is known for its elegance,magnificence and decency.We expect
+              each and everyone present at this event to be dressed befitting the honour of this event.Ethnic and formal dress codes
+              are the most suitable dress codes.</item>
+        <item>"The art of communication is the language of leadership"
+
+               Language is what connects people around us.It is natural to treat people with respect and we abide by this rule.
+               A warm smile is the universal language of kindness.The development of language is part of the development of the
+               personality,for words are the natural means of expressing thoughts and establishing understanding between people.
+               We believe in decent speaking culture throughout the event.</item>
+        <item>"Actions speak louder than words"
+
+               Proper etiquette,polite and mature behaviour is expected from everyone present at the event.Let us all make an effort
+               to conduct this gala event peacefully and efficiently.
+        </item>
+    </string-array>
+
 </resources>
