@@ -16,11 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DiscussActivity"></activity>
+        <activity android:name=".DiscussActivity" />
         <activity
             android:name=".registrationform"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
@@ -28,6 +27,10 @@
             android:name=".Home"
             android:screenOrientation="portrait"
             android:exported="true"/>
+        <activity
+            android:name=".QuestionDetail"
+            android:label="@string/title_activity_question_detail"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
