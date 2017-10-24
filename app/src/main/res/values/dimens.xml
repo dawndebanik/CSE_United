@@ -9,5 +9,11 @@
     <dimen name="fab_height">60dp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_medium">16sp</dimen>
+    <dimen name="app_bar_height">93dp</dimen>
     <dimen name="text_small">14sp</dimen>
+    <dimen name="userimage_height">40dp</dimen>
+    <dimen name="userimage_width">40dp</dimen>
+    <dimen name="event_box_height">60dp</dimen>
+    <dimen name="text_Title">40sp</dimen>
+    <dimen name="text_header">26sp</dimen>
 </resources>

@@ -24,6 +24,10 @@
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Home"
+            android:screenOrientation="portrait"
+            android:exported="true"/>
+        <activity
             android:name=".QuestionDetail"
             android:label="@string/title_activity_question_detail"
             android:theme="@style/AppTheme"></activity>
