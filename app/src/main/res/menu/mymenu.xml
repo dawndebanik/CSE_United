@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="HOME"
+        android:id="@+id/home"></item>
+    <item android:title="EVENTS"
+        android:id="@+id/events"></item>
+    <item android:title="GALLERY"
+        android:id="@+id/gallery"></item>
+    <item android:title="CSE UNITED"
+        android:id="@+id/cseunited"></item>
+    <item android:title="ABOUT US"
+        android:id="@+id/about"></item>
+</menu>
