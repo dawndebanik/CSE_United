@@ -16,14 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".registrationform"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".UnitedDetails"></activity>
     </application>
 
 </manifest>
