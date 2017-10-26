@@ -1,11 +1,8 @@
 package com.cseunited.alumni.cseunited;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.GravityCompat;
@@ -17,13 +14,9 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ExpandableListView;
 import android.widget.Toast;
 import helpers.InputValidation;
 
@@ -59,12 +52,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        startActivity(UnitedDetails.class); //Added by: Debanik. To test the discussion activity.
+        //startActivity(UnitedDetails.class); //Added by: Debanik. To test the discussion activity.
     }
     private void initViews() {
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
-        calender=(TextInputEditText)findViewById(R.id.batchDetails);
+        calender = (TextInputEditText)findViewById(R.id.textInputEditTextBatch);
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
@@ -158,9 +151,9 @@ public class MainActivity extends AppCompatActivity
                 verifyFromSQLite();
                 break;
             case R.id.textViewLinkRegister:
-                // Navigate to registrationform
-                Intent intentRegister = new Intent(getApplicationContext(), registrationform.class);
-                startActivity(intentRegister);
+                // Navigate to Registration Form
+                Intent intent = new Intent(getApplicationContext(), RegistrationForm.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -203,8 +196,9 @@ public class MainActivity extends AppCompatActivity
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
     }
+
     private void startActivity(Class<?> targetActivity) {
-        Intent intent=new Intent(this, targetActivity);
+        Intent intent = new Intent(this, targetActivity);
         startActivity(intent);
     }
 }
