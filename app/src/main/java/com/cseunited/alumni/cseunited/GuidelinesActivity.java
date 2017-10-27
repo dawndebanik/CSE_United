@@ -11,7 +11,7 @@ import android.widget.Toast;
  * Created by Client on 10/22/2017.
  */
 
-public class guideline_main extends AppCompatActivity implements Communicator{
+public class GuidelinesActivity extends AppCompatActivity implements Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
