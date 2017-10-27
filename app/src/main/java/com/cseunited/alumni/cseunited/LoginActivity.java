@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String email = emailView.getText().toString();
             String password = passwordView.getText().toString();
             password = new HashMaker("SHA-256").getHash(password);
-            //Do the web thing.
+            //Do the web thing
         }
         else{
             Intent intent = new Intent(this, RegistrationActivity.class);
