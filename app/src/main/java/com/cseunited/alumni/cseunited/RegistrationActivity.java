@@ -16,14 +16,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 import helpers.InputValidation;
 
-public class RegistrationForm extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    private final AppCompatActivity activity = RegistrationForm.this;
+    private final AppCompatActivity activity = RegistrationActivity.this;
 
     private NestedScrollView nestedScrollView;
 
@@ -54,7 +55,6 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regform);
-       // getSupportActionBar().hide();
 
         initViews();
         initListeners();
@@ -130,6 +130,9 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.appCompatButtonRegister:
+                // Verification and Web Request
+                Toast.makeText(this, "Registered Successfully", Toast.LENGTH_LONG).show();
+                finish();
                 break;
 
             case R.id.appCompatTextViewLoginLink:
@@ -142,13 +145,12 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                 int month = currentDate.get(Calendar.MONTH);
                 int date = currentDate.get(Calendar.DATE);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationForm.this, new DatePickerDialog.OnDateSetListener(){
+                DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener(){
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDate){
                         String dob = getString(R.string.dob_display, selectedDate, selectedMonth, selectedYear);
                         textInputEditTextDOB.setText(dob);
                     }
                 }, year, month, date);
-                datePickerDialog.setTitle("Date of Birth");
                 datePickerDialog.show();
                 break;
         }

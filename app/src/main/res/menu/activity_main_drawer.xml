@@ -3,20 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:title="HOME" />
+            android:icon="@drawable/ic_menu_home_24dp"
+            android:title="@string/home" />
         <item
             android:id="@+id/events"
-            android:title="EVENTS" />
+            android:icon="@drawable/ic_menu_event_24dp"
+            android:title="@string/events" />
         <item
             android:id="@+id/gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="GALLERY" />
+            android:icon="@drawable/ic_menu_gallery_24dp"
+            android:title="@string/gallery" />
         <item
-            android:id="@+id/cse"
-            android:title="CSE_UNITED" />
+            android:id="@+id/forum"
+            android:icon="@drawable/ic_menu_forum_24dp"
+            android:title="@string/forum"/>
         <item
             android:id="@+id/about"
-            android:title="ABOUT_US" />
+            android:icon="@drawable/ic_menu_info_24dp"
+            android:title="@string/about_us" />
     </group>
-
 </menu>
