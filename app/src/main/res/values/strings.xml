@@ -3,10 +3,11 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="text_accounts">All Accounts</string>
-    <string name="hint_name">Name</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="text_login">Login</string>
     <string name="text_register">Register Me</string>
     <string name="error_message_name">Enter Full Name</string>
@@ -22,19 +23,42 @@
     <string name="action_settings">Settings</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Android Tutorials Hub</string>
-    <string name="lets_get_you_started">Lets Get You Started</string>
-    <string name="all_the_fields_are_compulsory_please_bear_with_us">*All the fields are compulsory. Please bear with us</string>
+    <string name="lets_get_you_started">Let\'s Get Started</string>
+    <string name="all_fields_compulsory">* All the fields are compulsory. Please bear with us</string>
     <string name="basic_information">Basic Information</string>
+    <string name="grad_year">Graduating Year</string>
     <string name="personal_details">Personal Details</string>
-    <string name="by_registering_i_hearby_agree_to_the_terms_and_conditions_and_also_to_the_private_policy">terms and conditions</string>
+    <string name="dob">Date of Birth</string>
+    <string name="mob">Mobile Number</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="others">Others</string>
+    <string name="tandc">Terms and Conditions</string>
+    <string name="terms_and_conditions">By registering, I hearby agree to the Terms and Conditions, and also to the Privacy Policy</string>
+    <string name="professional_details">Professional Details</string>
     <string name="qualification">Qualification</string>
-    <string name="presentemployer">PresentEmployer</string>
+    <string name="present_employer">Present Employer</string>
+    <string name="current_position">Current Position</string>
     <string name="already_a_member_login">Already a member? Login</string>
     <string name="title_activity_question_detail">QuestionDetail</string>
     <string name="reply">Add reply here</string>
     <string name="add_reply">Add reply</string>
     <string name="rand_ques_title">Question Title</string>
     <string name="rand_ques">Random question</string>
+    <string name="role">Role</string>
+
+    <string-array name="role">
+        <item>Alumni</item>
+        <item>Faculty</item>
+    </string-array>
+
+    <string-array name="qualification">
+        <item>B.Tech.</item>
+        <item>M.Tech.</item>
+        <item>M.B.A.</item>
+        <item>Others</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

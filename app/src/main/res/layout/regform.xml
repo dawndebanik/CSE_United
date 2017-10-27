@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,25 +18,42 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="start"
             android:text="@string/lets_get_you_started"
             android:textStyle="bold"
-            android:textSize="35dp" />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:textColor="@android:color/holo_red_dark"
-            android:text="@string/all_the_fields_are_compulsory_please_bear_with_us"
-            android:textStyle="bold"
-            android:textSize="10dp" />
+            android:textSize="35sp" />
+
+        <!--<android.support.v7.widget.AppCompatTextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:textColor="@android:color/holo_red_dark"-->
+            <!--android:text="@string/all_fields_compulsory"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="12sp" />-->
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:text="@string/basic_information"
             android:layout_marginTop="@dimen/text_large"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditTextUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutEmail"
@@ -50,7 +65,7 @@
                 android:id="@+id/textInputEditTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_email"
+                android:hint="@string/email"
                 android:inputType="text"
                 android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
@@ -65,9 +80,9 @@
                 android:id="@+id/textInputEditTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
-                android:maxLines="1"/>
+                android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -80,31 +95,57 @@
                 android:id="@+id/textInputEditTextConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_confirm_password"
+                android:hint="@string/confirm_password"
                 android:inputType="textPassword"
                 android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/BatchYear"
+            android:id="@+id/textInputLayoutType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/role"
+                android:textSize="20sp"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinnerRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+            </android.support.v7.widget.AppCompatSpinner>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutBatch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/batchDetails"
+                android:id="@+id/textInputEditTextBatch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Batch(Graduating year [optional])"
+                android:hint="@string/grad_year"
                 android:inputType="date"
                 android:maxLines="1"/>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:text="@string/personal_details"
             android:layout_marginTop="@dimen/text_large"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutName"
             android:layout_width="match_parent"
@@ -115,10 +156,11 @@
                 android:id="@+id/textInputEditTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_name"
+                android:hint="@string/name"
                 android:inputType="text"
                 android:maxLines="1"/>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/dateOfBirth"
             android:layout_width="match_parent"
@@ -129,10 +171,11 @@
                 android:id="@+id/DateBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date Of Birth"
+                android:hint="@string/dob"
                 android:inputType="datetime"
                 android:maxLines="1"/>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/phone"
             android:layout_width="match_parent"
@@ -143,11 +186,11 @@
                 android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mobile Number"
+                android:hint="@string/mob"
                 android:inputType="number"
-                android:phoneNumber="true"
                 android:maxLines="1"/>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/gender"
             android:layout_width="match_parent"
@@ -156,60 +199,88 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sex"
-                android:textSize="20dp"
-                android:maxLines="1"/>
-            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:text="@string/gender"
+                android:textSize="20sp"/>
+
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioGroup
-                    android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/malesex"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:id="@+id/malesex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:text="male"
-                        android:layout_marginRight="25dp"/>
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:id="@+id/femalesex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="female"
-                        android:checked="false"/>
-                </RadioGroup>
-
-            </LinearLayout>
+                    android:checked="false"
+                    android:text="@string/male"
+                    android:layout_marginEnd="25dp"/>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/femalesex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:checked="false"
+                    android:layout_marginEnd="25dp"/>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/othersex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/others"
+                    android:checked="false"/>
+            </RadioGroup>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
-            android:text="Professional Details"
+            android:text="@string/professional_details"
             android:layout_marginTop="@dimen/text_large"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textQualLayoutName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/qualification"
+                android:textSize="20sp"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinnerQual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+            </android.support.v7.widget.AppCompatSpinner>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutQual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/Qualification"
+                android:id="@+id/textInputEditTextQual"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/qualification"
-                android:inputType="text"
+                android:inputType="date"
                 android:maxLines="1"/>
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/PresentEmployer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Present Employer"
+            android:hint="@string/present_employer"
             android:textStyle="bold"
             android:minHeight="@dimen/text_large"
             android:layout_marginTop="10dp">
@@ -218,21 +289,38 @@
                 android:id="@+id/institution"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Which institution are you currently asssociated with?"
-                android:inputType="text"
-                android:minLines="2"/>
+                android:inputType="text"/>
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/CurrentPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/current_position"
+            android:textStyle="bold"
+            android:minHeight="@dimen/text_large"
+            android:layout_marginTop="10dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </android.support.design.widget.TextInputLayout>
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Terms and Conditions"
+            android:text="@string/tandc"
             android:layout_marginTop="20dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
+
         <android.support.v7.widget.AppCompatCheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="By registering, I hearby agree to the Terms and conditions, and also to the private policy"/>
+            android:text="@string/terms_and_conditions"/>
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/appCompatButtonRegister"
             android:layout_width="match_parent"
@@ -240,6 +328,7 @@
             android:layout_marginTop="40dp"
             android:background="@color/colorTextHint"
             android:text="@string/text_register" />
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/appCompatTextViewLoginLink"
             android:layout_width="fill_parent"
@@ -247,6 +336,8 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:text="@string/already_a_member_login"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
+
     </android.support.v7.widget.LinearLayoutCompat>
+
 </android.support.v4.widget.NestedScrollView>

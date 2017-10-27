@@ -11,13 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
-import helpers.InputValidation;
-/**
- * Created by Sachin on 10/8/2017.
- */
-public class registrationform extends AppCompatActivity implements View.OnClickListener {
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-    private final AppCompatActivity activity = registrationform.this;
+import helpers.InputValidation;
+
+public class RegistrationForm extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+
+    private final AppCompatActivity activity = RegistrationForm.this;
 
     private NestedScrollView nestedScrollView;
 
@@ -25,6 +27,8 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
     private TextInputLayout textInputLayoutConfirmPassword;
+    private TextInputLayout textInputLayoutBatch;
+    private TextInputLayout textInputLayoutQual;
 
     private TextInputEditText textInputEditTextName;
     private TextInputEditText textInputEditTextEmail;
@@ -37,6 +41,9 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
     private UserDetails user;
+
+    private Spinner role;
+    private Spinner qualification;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +66,9 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         textInputLayoutConfirmPassword = (TextInputLayout) findViewById(R.id.textInputLayoutConfirmPassword);
+        textInputLayoutBatch = (TextInputLayout) findViewById(R.id.textInputLayoutBatch);
+        textInputLayoutQual = (TextInputLayout) findViewById(R.id.textInputLayoutQual);
+        textInputLayoutQual.setVisibility(View.GONE);
 
         textInputEditTextName = (TextInputEditText) findViewById(R.id.textInputEditTextName);
         textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
@@ -69,6 +79,22 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
 
         appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
 
+        /*
+         * Initializing the Role Spinner with data from strings.xml
+         */
+        role = (Spinner) findViewById(R.id.spinnerRole);
+        ArrayAdapter<CharSequence> roles = ArrayAdapter.createFromResource(this,
+                R.array.role, android.R.layout.simple_spinner_item);
+        roles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        role.setAdapter(roles);
+        role.setOnItemSelectedListener(this);
+
+        qualification = (Spinner) findViewById(R.id.spinnerQual);
+        ArrayAdapter<CharSequence> qualifications = ArrayAdapter.createFromResource(this,
+                R.array.qualification, android.R.layout.simple_spinner_item);
+        qualifications.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        qualification.setAdapter(qualifications);
+        qualification.setOnItemSelectedListener(this);
     }
 
     /**
@@ -94,20 +120,40 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
     /**
      * This implemented method is to listen the click on view
      *
-     * @param v
+     * @param view view pressed in the layout
+     *
      */
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.appCompatButtonRegister:
-                postDataToSQLite();
                 break;
 
             case R.id.appCompatTextViewLoginLink:
-                finish();
                 break;
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Spinner spinner = (Spinner) parent;
+        if(spinner.getId() == R.id.spinnerRole) {
+            if (position == 1)
+                textInputLayoutBatch.setVisibility(View.GONE);
+            else
+                textInputLayoutBatch.setVisibility(View.VISIBLE);
+        }
+        if(spinner.getId() == R.id.spinnerQual){
+            if (position == 3)
+                textInputLayoutQual.setVisibility(View.VISIBLE);
+            else
+                textInputLayoutQual.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     /**
@@ -160,6 +206,7 @@ public class registrationform extends AppCompatActivity implements View.OnClickL
         textInputEditTextPassword.setText(null);
         textInputEditTextConfirmPassword.setText(null);
     }
+
     private void startActivity(Class<?> targetActivity) {
         Intent intent=new Intent(this, targetActivity);
         startActivity(intent);
