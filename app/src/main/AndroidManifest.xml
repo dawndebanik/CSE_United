@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,24 +18,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DiscussActivity" />
+        <activity android:name=".DiscussActivity"/>
 
         <activity
-            android:name=".RegistrationForm"
-            android:screenOrientation="portrait" />
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".UnitedDetails"></activity>
+        <activity android:name=".UnitedDetails"/>
+
         <activity
             android:name=".Home"
             android:screenOrientation="portrait"
             android:exported="true"/>
+
         <activity
             android:name=".QuestionDetail"
             android:label="@string/title_activity_question_detail"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
 
     </application>
 

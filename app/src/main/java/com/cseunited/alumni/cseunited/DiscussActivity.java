@@ -1,5 +1,6 @@
 package com.cseunited.alumni.cseunited;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +57,9 @@ public class DiscussActivity extends AppCompatActivity implements DiscussAdapter
      */
     @Override
     public void onItemClick(View view, int position) {
-        /*  Code to be added to redirect to a new page showing the selected post on the forum.
-            Raj will create the required page.
-         */
-        Log.d("Item", "Click");
+        Intent intent = new Intent(this, QuestionDetail.class);
+        startActivity(intent);
+        Toast.makeText(this, (position+1)+" Clicked", Toast.LENGTH_LONG).show();
     }
 
     /**

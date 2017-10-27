@@ -16,4 +16,5 @@
     <dimen name="event_box_height">60dp</dimen>
     <dimen name="text_Title">40sp</dimen>
     <dimen name="text_header">26sp</dimen>
+    <dimen name="text_top_margin">10dp</dimen>
 </resources>

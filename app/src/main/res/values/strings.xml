@@ -2,8 +2,12 @@
     <string name="app_name">CSE United</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="home">Home</string>
+    <string name="gallery">Gallery</string>
+    <string name="events">Events</string>
+    <string name="forum">Discussion Forum</string>
     <string name="text_accounts">All Accounts</string>
-    <string name="name">Name</string>
+    <string name="name">Full Name</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -48,6 +52,7 @@
     <string name="rand_ques_title">Question Title</string>
     <string name="rand_ques">Random question</string>
     <string name="role">Role</string>
+    <string name="about_us">About Us</string>
 
     <string-array name="role">
         <item>Alumni</item>
