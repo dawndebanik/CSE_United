@@ -66,8 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
-                android:inputType="text"
-                android:maxLines="1" />
+                android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -81,8 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:maxLines="1" />
+                android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -96,8 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_password"
-                android:inputType="textPassword"
-                android:maxLines="1" />
+                android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -134,8 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/grad_year"
-                android:inputType="date"
-                android:maxLines="1"/>
+                android:inputType="date"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatTextView
@@ -157,23 +153,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:inputType="text"
-                android:maxLines="1"/>
+                android:inputType="text"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/dateOfBirth"
+            android:id="@+id/textInputLayoutDOB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/DateBirth"
+                android:id="@+id/textInputEditTextDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dob"
                 android:inputType="datetime"
-                android:maxLines="1"/>
+                android:focusable="false"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -188,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mob"
                 android:inputType="number"
-                android:maxLines="1"/>
+                android:maxLength="10"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -272,8 +267,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/qualification"
-                android:inputType="date"
-                android:maxLines="1"/>
+                android:inputType="date"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -311,10 +305,10 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
             android:text="@string/tandc"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20sp"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:layout_width="wrap_content"
@@ -326,7 +320,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/colorTextHint"
+            android:background="@color/colorPrimary"
             android:text="@string/text_register" />
 
         <android.support.v7.widget.AppCompatTextView
