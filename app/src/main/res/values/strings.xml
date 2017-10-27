@@ -29,6 +29,7 @@
     <string name="grad_year">Graduating Year</string>
     <string name="personal_details">Personal Details</string>
     <string name="dob">Date of Birth</string>
+    <string name="dob_display">%1$d/%2$d/%3$d</string>
     <string name="mob">Mobile Number</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>

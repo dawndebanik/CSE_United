@@ -11,6 +11,7 @@
     android:paddingRight="20dp"
     tools:showIn="@layout/app_bar_main"
     android:paddingTop="20dp">
+
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"

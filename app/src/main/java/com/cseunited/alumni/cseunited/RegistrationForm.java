@@ -1,5 +1,6 @@
 package com.cseunited.alumni.cseunited;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,7 +14,10 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
+
+import java.util.Calendar;
 
 import helpers.InputValidation;
 
@@ -34,6 +38,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     private TextInputEditText textInputEditTextEmail;
     private TextInputEditText textInputEditTextPassword;
     private TextInputEditText textInputEditTextConfirmPassword;
+    private TextInputEditText textInputEditTextDOB;
 
     private AppCompatButton appCompatButtonRegister;
     private AppCompatTextView appCompatTextViewLoginLink;
@@ -74,27 +79,23 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
         textInputEditTextConfirmPassword = (TextInputEditText) findViewById(R.id.textInputEditTextConfirmPassword);
+        textInputEditTextDOB = (TextInputEditText) findViewById(R.id.textInputEditTextDOB);
 
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
 
         appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
 
-        /*
-         * Initializing the Role Spinner with data from strings.xml
-         */
         role = (Spinner) findViewById(R.id.spinnerRole);
         ArrayAdapter<CharSequence> roles = ArrayAdapter.createFromResource(this,
                 R.array.role, android.R.layout.simple_spinner_item);
         roles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role.setAdapter(roles);
-        role.setOnItemSelectedListener(this);
 
         qualification = (Spinner) findViewById(R.id.spinnerQual);
         ArrayAdapter<CharSequence> qualifications = ArrayAdapter.createFromResource(this,
                 R.array.qualification, android.R.layout.simple_spinner_item);
         qualifications.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         qualification.setAdapter(qualifications);
-        qualification.setOnItemSelectedListener(this);
     }
 
     /**
@@ -103,7 +104,9 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     private void initListeners() {
         appCompatButtonRegister.setOnClickListener(this);
         appCompatTextViewLoginLink.setOnClickListener(this);
-
+        role.setOnItemSelectedListener(this);
+        qualification.setOnItemSelectedListener(this);
+        textInputEditTextDOB.setOnClickListener(this);
     }
 
     /**
@@ -130,10 +133,34 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.appCompatTextViewLoginLink:
+                finish();
+                break;
+
+            case R.id.textInputEditTextDOB:
+                Calendar currentDate = Calendar.getInstance();
+                int year = currentDate.get(Calendar.YEAR);
+                int month = currentDate.get(Calendar.MONTH);
+                int date = currentDate.get(Calendar.DATE);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationForm.this, new DatePickerDialog.OnDateSetListener(){
+                    public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDate){
+                        String dob = getString(R.string.dob_display, selectedDate, selectedMonth, selectedYear);
+                        textInputEditTextDOB.setText(dob);
+                    }
+                }, year, month, date);
+                datePickerDialog.setTitle("Date of Birth");
+                datePickerDialog.show();
                 break;
         }
     }
 
+    /**
+     *
+     * @param parent the Spinner on which the method is called
+     * @param view the view
+     * @param position position of the item selected
+     * @param id id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) parent;
