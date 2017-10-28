@@ -32,7 +32,7 @@
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".UnitedDetails"/>
+        <activity android:name=".UnitedDetailsActivity"/>
 
         <activity
             android:name=".Home"
@@ -40,7 +40,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".QuestionDetail"
+            android:name=".QuestionDetailActivity"
             android:label="@string/title_activity_question_detail"
             android:theme="@style/AppTheme"/>
 

@@ -1,14 +1,18 @@
 package com.cseunited.alumni.cseunited;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class UnitedDetails extends AppCompatActivity {
+public class UnitedDetailsActivity extends BaseActivity {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -18,7 +22,20 @@ public class UnitedDetails extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_united_details);
+
+        //Inflating the layout with the drawer layout
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_united_details, null, false);
+        mDrawer.addView(contentView, 0);
+
+        //Setting up the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Setting up hamburger icon
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
+        toggle.syncState();
 
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
