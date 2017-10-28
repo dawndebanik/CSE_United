@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -78,7 +77,7 @@ public class DiscussActivity extends BaseActivity implements DiscussAdapter.Item
      */
     @Override
     public void onItemClick(View view, int position) {
-        Intent intent = new Intent(this, QuestionDetail.class);
+        Intent intent = new Intent(this, QuestionDetailActivity.class);
         startActivity(intent);
         Toast.makeText(this, (position+1)+" Clicked", Toast.LENGTH_LONG).show();
     }
