@@ -47,7 +47,8 @@
         <activity
             android:name=".QueryPostActivity"
             android:label="@string/Post_Query"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".DiscussActivity"/>
 
     </application>
 
