@@ -28,14 +28,16 @@
                 android:id="@+id/login_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/background_button"
+                android:textColor="@color/colorTextIcons"
                 android:text="Login View"/>
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/forum_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/background_button"
+                android:textColor="@color/colorTextIcons"
                 android:text="Forum"
                 android:layout_marginTop="20dp"/>
 
@@ -43,7 +45,8 @@
                 android:id="@+id/details_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/background_button"
+                android:textColor="@color/colorTextIcons"
                 android:text="Department Details"
                 android:layout_marginTop="20dp"/>
 
