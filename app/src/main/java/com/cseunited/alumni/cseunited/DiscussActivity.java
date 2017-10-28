@@ -1,26 +1,47 @@
 package com.cseunited.alumni.cseunited;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscussActivity extends AppCompatActivity implements DiscussAdapter.ItemClickListener {
+public class DiscussActivity extends BaseActivity implements DiscussAdapter.ItemClickListener {
     RecyclerView discussionView;
     FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discuss_main);
+
+        //Inflating the layout with the drawer layout
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_discuss_main, null, false);
+        mDrawer.addView(contentView, 0);
+
+        //Setting up the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Setting up hamburger icon
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //Selecting the option in navigation view
+        navigationView.getMenu().getItem(3).setChecked(true);
+
         discussionView = (RecyclerView) findViewById(R.id.recycler);
         DiscussAdapter adapter = new DiscussAdapter(getApplicationContext(), fetchListOfPosts());
         adapter.setClickListener(this);
