@@ -46,25 +46,25 @@ public class UnitedDetails extends AppCompatActivity {
         listDataHeader.add(getString(R.string.cse_2011));
 
         // Adding child data
-        List<String> u15 = new ArrayList<>();
-        u15.add(getString(R.string.description_cse_2015));
+        List<String> united_2015 = new ArrayList<>();
+        united_2015.add(getString(R.string.description_cse_2015));
 
-        List<String> u14 = new ArrayList<>();
-        u14.add(getString(R.string.description_cse_2014));
+        List<String> united_2014 = new ArrayList<>();
+        united_2014.add(getString(R.string.description_cse_2014));
 
-        List<String> u13 = new ArrayList<>();
-        u13.add(getString(R.string.description_cse_2013));
+        List<String> united_2013 = new ArrayList<>();
+        united_2013.add(getString(R.string.description_cse_2013));
 
-        List<String> u12 = new ArrayList<>();
-        u12.add(getString(R.string.description_cse_2012));
+        List<String> united_2012 = new ArrayList<>();
+        united_2012.add(getString(R.string.description_cse_2012));
 
-        List<String> u11 = new ArrayList<>();
-        u11.add(getString(R.string.description_cse_2011));
+        List<String> united_2011 = new ArrayList<>();
+        united_2011.add(getString(R.string.description_cse_2011));
 
-        listDataChild.put(listDataHeader.get(0), u15); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), u14);
-        listDataChild.put(listDataHeader.get(2), u13);
-        listDataChild.put(listDataHeader.get(3), u12);
-        listDataChild.put(listDataHeader.get(4), u11);
+        listDataChild.put(listDataHeader.get(0), united_2015); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), united_2014);
+        listDataChild.put(listDataHeader.get(2), united_2013);
+        listDataChild.put(listDataHeader.get(3), united_2012);
+        listDataChild.put(listDataHeader.get(4), united_2011);
     }
 }

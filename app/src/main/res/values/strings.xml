@@ -43,6 +43,7 @@
         <item>Language Code</item>
         <item>Behavioural Code</item>
     </string-array>
+
     <string-array name="descriptions">
         <item>"Clothing is transformative."
 
@@ -62,6 +63,7 @@
                to conduct this gala event peacefully and efficiently.
         </item>
     </string-array>
+
     <string name="cse_2015">"CSE United and Alumni Meet 2015"</string>
     <string name="cse_2014">"CSE United and Alumni Meet 2014"</string>
     <string name="cse_2013">"CSE United and Alumni Meet 2013"</string>
@@ -98,4 +100,29 @@
         Interaction with first years.
         Songs by CKB sir and Poulami ma'am."
     </string>
+
+    <string name="PD_mam">Prof. Poulami Dutta</string>
+    <string name="MB_mam">Asst. Prof. Mousumi Bhattacharya</string>
+    <string name="NC_mam">Asst. Prof. Nairanjana Chowdhury</string>
+    <string name="Tapan_Sir">Asst. Prof. Tapan Chowdhury</string>
+    <string name="MKN_Sir">Asst. Prof. Mrinal Kanti Nath</string>
+
+    <string name="PD_mam_words">Being a part of the team as a Convener, ever since its inception and managing cultural affairs of a department of which I am a part of, since the last decade, is very valuable, prestigiousand special for me. I am personally very excited about the transformation that is underway at CSE, TISL where the focus is not only on “Innovative Learning”, to prepare students to be ready for the industry and research, but also on nurturing talent and boosting confidence and morale, to foster growth and sculpt professional leaders with high academic aptitude through a learner-centric system and advanced pedagogic methods.
+        Having completed 5 years and into its sixth, it is my privilege and pleasure to bring out the first edition of the progress book for the event CSE United cum Alumni Meet. In this journey through dance, drama, music, integrating technology with culture, we have celebrated the achievements of our current students, basking in the pride of our alumni and ushered in the next batch of young and energetic aspirants to the department. In this endeavor we thrive to get better and leave our footprints in the caskets of one’s memories
+    </string>
+    <string name="MB_mam_words">CSE UNITED: - This is not just a yearly event, but a festive, a celebration, a pride of our department. I am extremely delighted to be a part of it. We, Department of CSE, strongly believe in the all-round development of the students- be it academics, personality or co-curricular activities. This is the platform where students can get an opportunity to show their talent beyond the syllabus.
+        I want to compliment and congratulate the organizing committee and our beloved colleague Ms. Poulami Dutta, for their immense effort, without them this event could not be a success. I wish the students of CSE, who are the brand ambassadors and the torch bearers of this event, all the very best.
+    </string>
+    <string name="NC_mam_words">When CSE united was conceptualized in 2011, we never expected it to become such an extravaganza over these years. What started as a departmental get together in that November afternoon has now stepped outside the college premises and surely has become an annual gala that is a signature event for the CSE department that each and every one of us look forward to; indeed, a great achievement for a FIVE-year-old!! This event has sprung surprises on us over last five years; students turned into directors, we faculties had to follow scripts, dancers bloomed, students from first and last bench turned into finest actors to give life to some amazing scripts, musicians-vocal and instrumental alike scored every time they took the stage, and students from all four years cheered together and became one big family.
+        The organizing team, under the very able guidance of Poulami Ma’am, across these years, has seen different faces, but all of them have been the same in spirit, that is to make it a little better. CKB Sir very rightly had sung ‘Sweetheart’ in the very first edition of the event, as this event truly has become a ‘Sweetheart’ of our department, and hopefully will remain so. I will take this opportunity to congratulate this event and the team behind it for completing the first five years, and wish all the luck for the coming editions; hoping to be a witness to many more of these. Godspeed!!
+    </string>
+    <string name="Tapan_sir_words">The “CSE UNITED” which was held on November 7th, 2015 was very successful and undoubtedly appreciated amongst the students and faculty members. The students of CSE Department had join in a lot of activities such as music and dance performances, drama etc.
+        The event day was also visited by Honorable Co-Chairman, Smt. Manasi Roy Chowdhury, who held an inspiring speech and expressed her wish to make the event day a regular event.
+        Many thanks to the organizing committee who spent several days of hard work, planning and preparing the event! Without the great efforts from students of all the years, the CSE united event would not have been this successful. A special thanks to Ms. Poulami Dutta, faculty of CSE department, who ambitiously coordinated the whole event and motivated so many students to take part in it.
+    </string>
+    <string name="MKN_sir_words">I’d like to start by thanking to my entire department of CSE, honorable faculities, students and as well as all the alumni’s associated here. I’m sure you’d all agree, the whole event from the start to the finish was very well planned and executed to the fullest giving ample time and space to communicate, laugh and share which gave rise to a sense of belonging and oneness. I also take this opportunity to appreciate the strenuous efforts made by the committee who has worked so tirelessly to make it all such a success and especially Mrs. Poulami Dutta our delightful compare faculty who made sure everything ran so very well. Everyone was having a blast. May I not been a long time in this event but since I’ve been to a sit-down as a faculty and been a part of that event was that much fun!
+        I only wish I could have been there to witness from the 1st day of its beginning. Again, thank you for letting us spread the word on WOW. From the last 4 years it has been going through smoothly but this year it was really superb I must say. I wish this event will be more successful and brightening as much as the scorching Sun rays in a pleasant summer’s day.
+    </string>
+
 </resources>
+

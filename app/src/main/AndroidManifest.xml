@@ -16,26 +16,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".DiscussActivity" />
-
         <activity
             android:name=".registrationform"
             android:screenOrientation="portrait" />
         <activity
             android:name=".UsersListActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".UnitedDetails"></activity>
+        <activity android:name=".UnitedDetails" />
         <activity
             android:name=".Home"
-            android:screenOrientation="portrait"
-            android:exported="true"/>
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuestionDetail"
             android:label="@string/title_activity_question_detail"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AboutTeachers"></activity>
     </application>
 
 </manifest>
