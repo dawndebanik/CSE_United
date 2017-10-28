@@ -54,6 +54,11 @@
     <string name="role">Role</string>
     <string name="about_us">About Us</string>
 
+    <!--Strings for activity_add_question.xml-->
+    <string name="question_title">Question Title</string>
+    <string name="question_desc">Describe your query&#8230;</string>
+    <string name="btn_post">POST</string>
+
     <string-array name="role">
         <item>Alumni</item>
         <item>Faculty</item>

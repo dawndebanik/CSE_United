@@ -2,15 +2,11 @@ package com.cseunited.alumni.cseunited;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
@@ -23,8 +19,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
-
-import helpers.InputValidation;
 
 public class RegistrationActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
