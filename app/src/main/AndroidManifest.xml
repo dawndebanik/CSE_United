@@ -44,6 +44,11 @@
             android:label="@string/title_activity_question_detail"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name=".QueryPostActivity"
+            android:label="@string/Post_Query"
+            android:theme="@style/AppTheme"/>
+
     </application>
 
 </manifest>

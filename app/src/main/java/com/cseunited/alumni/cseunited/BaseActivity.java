@@ -1,5 +1,6 @@
 package com.cseunited.alumni.cseunited;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,6 +35,8 @@ class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigat
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.nav_home){
+            Intent intent = new Intent(this, Home.class);
+            startActivity(intent);
 
         }
         else if(id == R.id.nav_events){
@@ -43,6 +46,8 @@ class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigat
 
         }
         else if(id == R.id.nav_forum){
+            Intent intent = new Intent(this, DiscussActivity.class);
+            startActivity(intent);
 
         }
         else if(id == R.id.nav_about){

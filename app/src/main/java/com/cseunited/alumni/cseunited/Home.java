@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity {
+public class Home extends BaseActivity {
     TextView textView,textView1;
 
     @Override
