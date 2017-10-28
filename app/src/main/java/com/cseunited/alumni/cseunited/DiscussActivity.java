@@ -91,6 +91,8 @@ public class DiscussActivity extends BaseActivity implements DiscussAdapter.Item
         /* Code to be executed when the user clicks on the 'add' button.
            To be taken to a screen to add a post.
          */
+        Intent intent = new Intent(this, QueryPostActivity.class);
+        startActivity(intent);
         Log.d("AddButton", "Click");
     }
 }
