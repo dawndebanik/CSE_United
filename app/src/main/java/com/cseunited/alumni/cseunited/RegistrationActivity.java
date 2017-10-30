@@ -142,7 +142,6 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                 int year = currentDate.get(Calendar.YEAR);
                 int month = currentDate.get(Calendar.MONTH);
                 int date = currentDate.get(Calendar.DATE);
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener(){
                     public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDate){
                         String dob = getString(R.string.dob_display, selectedDate, selectedMonth, selectedYear);

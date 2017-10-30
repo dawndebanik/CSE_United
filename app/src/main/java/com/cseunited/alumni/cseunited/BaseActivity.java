@@ -15,7 +15,7 @@ import android.view.Window;
  * Created by Suyash on 10/28/2017
  */
 
-class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     protected DrawerLayout mDrawer;
     protected NavigationView navigationView;
