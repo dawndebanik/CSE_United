@@ -28,10 +28,6 @@
             android:name=".RegistrationActivity"
             android:screenOrientation="portrait"/>
 
-        <activity
-            android:name=".UsersListActivity"
-            android:screenOrientation="portrait" />
-
         <activity android:name=".UnitedDetailsActivity"/>
 
         <activity
@@ -49,6 +45,11 @@
             android:label="@string/Post_Query"
             android:theme="@style/AppTheme"
             android:parentActivityName=".DiscussActivity"/>
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme"/>
 
     </application>
 

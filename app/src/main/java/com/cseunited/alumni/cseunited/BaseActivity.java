@@ -48,6 +48,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
         else if(id == R.id.nav_about){
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
 
         }
         if(mDrawer.isDrawerOpen(GravityCompat.START))
