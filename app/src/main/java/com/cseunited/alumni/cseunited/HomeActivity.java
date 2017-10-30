@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-public class Home extends BaseActivity {
+public class HomeActivity extends BaseActivity {
     TextView textView,textView1;
 
     @Override
@@ -18,7 +18,7 @@ public class Home extends BaseActivity {
         setContentView(R.layout.activity_home);
         // Intent to receive the username from the login screen
         /* Paste below lines in the login activity
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);

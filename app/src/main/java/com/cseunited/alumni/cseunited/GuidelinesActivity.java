@@ -47,7 +47,7 @@ public class GuidelinesActivity extends AppCompatActivity implements Communicato
         switch(id)
         {
             case R.id.home:
-                Toast.makeText(this,"Home clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"HomeActivity clicked",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.events:
                 Toast.makeText(this,"Events clicked",Toast.LENGTH_SHORT).show();

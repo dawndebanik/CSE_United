@@ -35,7 +35,7 @@
         <activity android:name=".UnitedDetailsActivity"/>
 
         <activity
-            android:name=".Home"
+            android:name=".HomeActivity"
             android:screenOrientation="portrait"
             android:exported="true"/>
 

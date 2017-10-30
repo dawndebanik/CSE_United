@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cseunited.alumni.cseunited.Home">
-
+    tools:context="com.cseunited.alumni.cseunited.HomeActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,7 +17,6 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         tools:layout_constraintTop_creator="1"
         tools:layout_editor_absoluteX="-13dp" />
-
 
     <TextView
         android:id="@+id/textView7"
@@ -89,6 +87,5 @@
         android:layout_marginLeft="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="5dp" />
-
 
 </android.support.constraint.ConstraintLayout>
