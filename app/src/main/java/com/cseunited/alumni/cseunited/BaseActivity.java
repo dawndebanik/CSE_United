@@ -11,8 +11,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.Window;
+
+import java.util.HashMap;
 
 /**
  * Created by Suyash on 10/28/2017
@@ -22,7 +25,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
 
     protected DrawerLayout mDrawer;
     protected NavigationView navigationView;
-
+    private HashMap<Integer, Class> activitySelector;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,33 +34,25 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        initializeActivitySelector();
     }
-
+    private void initializeActivitySelector(){
+        activitySelector = new HashMap<>();
+        activitySelector.put(R.id.nav_home, MainActivity.class);
+        activitySelector.put(R.id.nav_forum, DiscussActivity.class);
+        activitySelector.put(R.id.nav_about, AboutActivity.class);
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.nav_home){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        else if(id == R.id.nav_events){
 
-        }
-        else if(id == R.id.nav_gallery){
-
-        }
-        else if(id == R.id.nav_forum){
-            Intent intent = new Intent(this, DiscussActivity.class);
-            startActivity(intent);
-        }
-        else if(id == R.id.nav_about){
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-
-        }
         if(mDrawer.isDrawerOpen(GravityCompat.START))
             mDrawer.closeDrawer(GravityCompat.START);
-        this.finish();
+
+        Class target = activitySelector.get(item.getItemId());
+        if(this.getClass()!=target && target!=null) {
+            startActivity(new Intent(this, target));
+            this.finish();
+        }
         return true;
     }
 
