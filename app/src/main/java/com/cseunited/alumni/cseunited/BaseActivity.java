@@ -26,6 +26,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     protected DrawerLayout mDrawer;
     protected NavigationView navigationView;
     private HashMap<Integer, Class> activitySelector;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,11 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         initializeActivitySelector();
     }
+
+    /**
+     * Fill the HashMap with the ids of the items in the nav_drawer
+     * and its corresponding target class.
+     */
     private void initializeActivitySelector(){
         activitySelector = new HashMap<>();
         activitySelector.put(R.id.nav_home, MainActivity.class);
@@ -49,7 +55,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             mDrawer.closeDrawer(GravityCompat.START);
 
         Class target = activitySelector.get(item.getItemId());
-        if(this.getClass()!=target && target!=null) {
+        if(this.getClass()!=target && target!=null) { // to prevent redirection to the same page.
             startActivity(new Intent(this, target));
             this.finish();
         }
