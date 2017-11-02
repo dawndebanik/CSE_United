@@ -2,6 +2,9 @@ package com.cseunited.alumni.cseunited;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.transition.Transition;
+import android.support.transition.TransitionManager;
+import android.support.transition.TransitionSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,6 +115,5 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
     }
-
 
 }
