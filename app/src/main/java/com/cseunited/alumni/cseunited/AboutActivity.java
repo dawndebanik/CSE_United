@@ -49,7 +49,7 @@ public class AboutActivity extends BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
-
+      
         detail.put(name1.first, detail1);
         detail.put(name2.first, detail2);
 
