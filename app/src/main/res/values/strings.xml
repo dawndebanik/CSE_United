@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">CSE</string>
+    <!--Strings common throughout the APP-->
+    <string name="app_name">CSE TISL</string>
 
     <!--Strings for navigation drawer-->
     <string name="home">home.c</string>
@@ -35,6 +36,7 @@
     <string name="basic_information">Basic Information</string>
     <string name="personal_details">Personal Details</string>
     <string name="professional_details">Professional Details</string>
+    <string name="text_not_member">No account yet? Create one</string>
     <string name="already_a_member_login">Already a member? Login</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -46,7 +48,6 @@
     <string name="error_message_age">Enter Age</string>
     <string name="error_message_password">Enter Password</string>
     <string name="success_message">Registration Successful</string>
-    <string name="text_not_member">No account yet? Create one</string>
     <string name="error_email_exists">Email Already Exists</string>
     <string name="error_password_match">Password Does Not Matches</string>
     <string name="error_valid_email_password">Wrong Email or Password</string>
