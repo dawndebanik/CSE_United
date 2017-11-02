@@ -55,9 +55,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
 
         }
-        if(mDrawer.isDrawerOpen(GravityCompat.START))
-            mDrawer.closeDrawer(GravityCompat.START);
-        this.finish();
+        mDrawer.closeDrawer(GravityCompat.START);
+        //this.finish();
         return true;
     }
 
@@ -68,11 +67,11 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-        if (this instanceof MainActivity)
-            this.finishAffinity();
-        else if(this.isTaskRoot()){
-            startActivity(new Intent(this, MainActivity.class));
-            this.finish();
-        }
+//        if (this instanceof MainActivity)
+//            this.finishAffinity();
+//        else if(this.isTaskRoot()){
+//            startActivity(new Intent(this, MainActivity.class));
+//            this.finish();
+//        }
     }
 }
