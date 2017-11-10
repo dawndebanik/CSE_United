@@ -10,27 +10,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ExpandableListView;
 
-import java.util.Arrays;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Sachin on 10/30/2017
+ * Edited by Suyash
  */
 
 public class AboutActivity extends BaseActivity {
 
-    Pair<String, String> name1 = new Pair<>("Name1", "Designation1");
-    Pair<String, String> name2 = new Pair<>("Name2", "Designation2");
-    List<Pair<String, String>> name = Arrays.asList(name1, name2);
+    private final String url = "http://192.168.0.100/cseunited/faculty.json"; //Temporary url for testing
 
-    List<String> achievements  = Arrays.asList("Achievement1", "Achievement2", "Achievement3");
-    List<String> publications  = Arrays.asList("Publication1", "Publication2");
-    Pair<List<String>, List<String>> detail1 = new Pair<>(achievements, publications);
-    Pair<List<String>, List<String>> detail2 = new Pair<>(achievements, publications);
-    Map<String, Pair<List<String>, List<String>>> detail = new HashMap<>();
-    Map<String, Integer> image = new HashMap<>();
+    List<Pair<String, String>> names = new ArrayList<>();
+    Map<String, Pair<List<String>, List<String>>> details = new HashMap<>();
+    Map<String, String> images = new HashMap<>();
+
+    private ExpandableListView expandableListView;
+    private int lastExpandedPosition = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,19 +56,63 @@ public class AboutActivity extends BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
-      
-        detail.put(name1.first, detail1);
-        detail.put(name2.first, detail2);
 
-        image.put(name1.first, R.drawable.mb_mam);
-        image.put(name2.first, R.drawable.nc_mam);
+        volleyRequest();
 
-        populateView();
+        expandableListView = (ExpandableListView) findViewById(R.id.faculty_expandable_view);
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if (lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
+                    expandableListView.collapseGroup(lastExpandedPosition);
+                lastExpandedPosition = groupPosition;
+            }
+        });
     }
 
-    void populateView(){
-        ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.faculty_expandable_view);
-        FacultyExpandableListAdapter listAdapter = new FacultyExpandableListAdapter(this, image, name, detail);
-        expandableListView.setAdapter(listAdapter);
+    private void volleyRequest(){
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                processJson(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        VolleyChannel.getInstance(this).addToRequestQueue(jsObjRequest, this);
+    }
+
+    private void processJson(JSONObject response){
+        try {
+            JSONArray faculty = response.getJSONArray("faculty");
+            for (int i=0;i<faculty.length();i++){
+                JSONObject f = faculty.getJSONObject(i);
+                Pair<String, String> name = new Pair<>(f.getString("name"), f.getString("qual"));
+                names.add(name);
+                images.put(f.getString("name"), f.getString("image"));
+                JSONArray a = f.getJSONArray("achievements");
+                JSONArray p = f.getJSONArray("publications");
+                List<String> achievements = new ArrayList<>();
+                List<String> publications = new ArrayList<>();
+                for (int j=0;j<a.length();j++){
+                    achievements.add((j+1)+". "+a.getString(j)+"\n");
+                }
+                for (int j=0;j<p.length();j++){
+                    publications.add((j+1)+". "+p.getString(j)+"\n");
+                }
+                Pair<List<String>, List<String>> detail = new Pair<>(achievements, publications);
+                details.put(f.getString("name"), detail);
+
+                FacultyExpandableListAdapter listAdapter = new FacultyExpandableListAdapter(this, images, names, details);
+                expandableListView.setAdapter(listAdapter);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -11,10 +11,11 @@ import com.android.volley.toolbox.Volley;
 
 
 /**
- * Created by Debanik on 02-11-2017.
+ * Created by Debanik on 02-11-2017
  */
 
 public class VolleyChannel {
+
     private static VolleyChannel mInstance;
     private ImageLoader mLoader;
     private RequestQueue mQueue;
