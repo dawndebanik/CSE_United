@@ -20,10 +20,10 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<Pair<String, String>> names;
-    private Map<String, Integer> image;
+    private Map<String, String> image;
     private Map<String, Pair<List<String>, List<String>>> details;
 
-    FacultyExpandableListAdapter(Context context, Map<String, Integer> image, List<Pair<String, String>> names, Map<String, Pair<List<String>, List<String>>> details){
+    FacultyExpandableListAdapter(Context context, Map<String, String> image, List<Pair<String, String>> names, Map<String, Pair<List<String>, List<String>>> details){
         this.context = context;
         this.image = image;
         this.names = names;
@@ -44,7 +44,7 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
 
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.expandable_list_item, null);
+            convertView = inflater.inflate(R.layout.faculty_expandable_list_item, null);
         }
 
         ImageView image = (ImageView) convertView.findViewById(R.id.faculty_image);
@@ -64,8 +64,6 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         publications_view.setText(br2);
-
-        image.setImageResource(this.image.get(this.names.get(groupPosition).first));
 
         return convertView;
     }
@@ -114,11 +112,17 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
 
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.expandable_list_group, null);
+            convertView = inflater.inflate(R.layout.faculty_expandable_list_group, null);
         }
 
         TextView name_view = (TextView) convertView.findViewById(R.id.faculty_name);
         TextView desig_view = (TextView) convertView.findViewById(R.id.faculty_desig);
+        ImageView indicator = (ImageView) convertView.findViewById(R.id.faculty_group_indicator);
+
+        if(isExpanded)
+            indicator.setImageResource(R.drawable.ic_arrow_drop_up_24dp);
+        else
+            indicator.setImageResource(R.drawable.ic_arrow_drop_down_24dp);
 
         name_view.setText(name);
         desig_view.setText(desig);

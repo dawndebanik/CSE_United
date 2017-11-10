@@ -1,7 +1,5 @@
 package com.cseunited.alumni.cseunited;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,8 +8,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.Window;
 
@@ -75,5 +71,11 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, MainActivity.class));
             this.finish();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        VolleyChannel.getInstance(this).getRequestQueue().cancelAll(this);
+        super.onStop();
     }
 }

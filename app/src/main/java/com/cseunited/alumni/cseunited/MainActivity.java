@@ -3,8 +3,6 @@ package com.cseunited.alumni.cseunited;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -14,7 +12,7 @@ import android.view.View;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private AppCompatButton loginBtn, forumBtn, detailsBtn;
+    private AppCompatButton loginBtn, forumBtn, detailsBtn, eventsBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,12 +44,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         loginBtn = (AppCompatButton) findViewById(R.id.login_view);
         forumBtn = (AppCompatButton) findViewById(R.id.forum_view);
         detailsBtn = (AppCompatButton) findViewById(R.id.details_view);
+        eventsBtn = (AppCompatButton) findViewById(R.id.events_view);
     }
 
     private void initListeners() {
         loginBtn.setOnClickListener(this);
         forumBtn.setOnClickListener(this);
         detailsBtn.setOnClickListener(this);
+        eventsBtn.setOnClickListener(this);
     }
 
     private void initObjects() {
@@ -70,7 +70,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             startActivity(intent);
         }
         else if(id == R.id.details_view){
-            Intent intent = new Intent(this, UnitedDetailsActivity.class);
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.events_view){
+            Intent intent = new Intent(this, EventActivity.class);
             startActivity(intent);
         }
     }
