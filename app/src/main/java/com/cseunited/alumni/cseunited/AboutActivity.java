@@ -1,5 +1,6 @@
 package com.cseunited.alumni.cseunited;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -39,6 +40,8 @@ public class AboutActivity extends BaseActivity {
     private ExpandableListView expandableListView;
     private int lastExpandedPosition = -1;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,10 @@ public class AboutActivity extends BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         volleyRequest();
 
@@ -76,6 +83,7 @@ public class AboutActivity extends BaseActivity {
             @Override
             public void onResponse(JSONObject response) {
                 processJson(response);
+                progressDialog.cancel();
             }
         }, new Response.ErrorListener() {
             @Override
