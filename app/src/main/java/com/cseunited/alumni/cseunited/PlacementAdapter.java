@@ -15,11 +15,11 @@ import java.util.List;
  * Created by Client on 11/11/2017.
  */
 
-public class placementAdapter extends BaseExpandableListAdapter {
+public class PlacementAdapter extends BaseExpandableListAdapter {
     private List<String> header_titles;
     private HashMap<String,List<String>> child_titles;
     private Context ctx;
-    placementAdapter(Context ctx,List<String> header_titles,HashMap<String,List<String>> child_titles)
+    PlacementAdapter(Context ctx, List<String> header_titles, HashMap<String,List<String>> child_titles)
     {
         this.ctx=ctx;
         this.child_titles=child_titles;
