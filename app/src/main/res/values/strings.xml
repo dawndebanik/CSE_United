@@ -141,4 +141,37 @@
     <string name="Post_Query">Post Query</string>
     <string name="title_activity_about">About</string>
     <string name="string_achievements">achievements</string>
+    <!--strings for placement activity-->
+    <string-array name="header_titles">
+        <item>Batch_2008-2012</item>
+        <item>Batch_2009-2013</item>
+        <item>Batch_2010-2014</item>
+        <item>Batch_2011-2015</item>
+        <item>Batch_2012-2016</item>
+    </string-array>
+    <string-array name="h1_items">
+        <item>Company1</item>
+        <item>Company2</item>
+        <item>Company3</item>
+    </string-array>
+    <string-array name="h2_items">
+        <item>Company1</item>
+        <item>Company2</item>
+        <item>Company3</item>
+    </string-array>
+    <string-array name="h3_items">
+        <item>Company1</item>
+        <item>Company2</item>
+        <item>Company3</item>
+    </string-array>
+    <string-array name="h4_items">
+        <item>Company1</item>
+        <item>Company2</item>
+        <item>Company3</item>
+    </string-array>
+    <string-array name="h5_items">
+        <item>Company1</item>
+        <item>Company2</item>
+        <item>Company3</item>
+    </string-array>
 </resources>
