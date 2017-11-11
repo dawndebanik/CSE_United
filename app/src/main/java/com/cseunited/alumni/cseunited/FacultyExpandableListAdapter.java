@@ -9,6 +9,8 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +22,12 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<Pair<String, String>> names;
-    private Map<String, String> image;
+    private Map<String, String> images;
     private Map<String, Pair<List<String>, List<String>>> details;
 
-    FacultyExpandableListAdapter(Context context, Map<String, String> image, List<Pair<String, String>> names, Map<String, Pair<List<String>, List<String>>> details){
+    FacultyExpandableListAdapter(Context context, Map<String, String> images, List<Pair<String, String>> names, Map<String, Pair<List<String>, List<String>>> details){
         this.context = context;
-        this.image = image;
+        this.images = images;
         this.names = names;
         this.details = details;
     }
@@ -64,6 +66,8 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         publications_view.setText(br2);
+
+        Picasso.with(context).load(images.get(names.get(groupPosition).first)).placeholder(R.drawable.placeholder).error(R.drawable.placeholder).into(image);
 
         return convertView;
     }
