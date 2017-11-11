@@ -38,6 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initViews();
         initListeners();
         initObjects();
+        //startActivity(new Intent(getApplicationContext(), PlacementActivity.class));
     }
 
     private void initViews() {

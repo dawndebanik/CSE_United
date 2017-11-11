@@ -1,7 +1,5 @@
 package com.cseunited.alumni.cseunited;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.MenuItemHoverListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
@@ -11,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Client on 11/11/2017.
+ * Created by Akriti on 11/11/2017.
  */
 
-public class placementActivity extends AppCompatActivity {
+public class PlacementActivity extends  BaseActivity {
     ExpandableListView expandableListView;
 
     @Override
@@ -64,7 +62,7 @@ public class placementActivity extends AppCompatActivity {
         ChildList.put(Headings.get(2),L3);
         ChildList.put(Headings.get(3),L4);
         ChildList.put(Headings.get(4),L5);
-        placementAdapter myAdapter=new placementAdapter(this,Headings,ChildList);
+        PlacementAdapter myAdapter=new PlacementAdapter(this,Headings,ChildList);
         expandableListView.setAdapter(myAdapter);
     }
     @Override
