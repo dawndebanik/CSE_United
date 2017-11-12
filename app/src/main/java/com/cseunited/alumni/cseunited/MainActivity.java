@@ -12,7 +12,7 @@ import android.view.View;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private AppCompatButton loginBtn, forumBtn, detailsBtn, eventsBtn;
+    private AppCompatButton loginBtn, forumBtn, detailsBtn, eventsBtn, homeBtn, placementBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,8 +37,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         initViews();
         initListeners();
-        initObjects();
-        //startActivity(new Intent(getApplicationContext(), PlacementActivity.class));
     }
 
     private void initViews() {
@@ -46,6 +44,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         forumBtn = (AppCompatButton) findViewById(R.id.forum_view);
         detailsBtn = (AppCompatButton) findViewById(R.id.details_view);
         eventsBtn = (AppCompatButton) findViewById(R.id.events_view);
+        homeBtn = (AppCompatButton) findViewById(R.id.home_view);
+        placementBtn = (AppCompatButton) findViewById(R.id.placement_view);
     }
 
     private void initListeners() {
@@ -53,10 +53,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         forumBtn.setOnClickListener(this);
         detailsBtn.setOnClickListener(this);
         eventsBtn.setOnClickListener(this);
-    }
-
-    private void initObjects() {
-
+        homeBtn.setOnClickListener(this);
+        placementBtn.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +74,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         else if(id == R.id.events_view){
             Intent intent = new Intent(this, EventActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.home_view){
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.placement_view){
+            Intent intent = new Intent(this, PlacementActivity.class);
             startActivity(intent);
         }
     }

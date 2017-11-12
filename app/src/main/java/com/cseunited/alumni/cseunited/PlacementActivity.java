@@ -1,85 +1,125 @@
 package com.cseunited.alumni.cseunited;
+
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Akriti on 11/11/2017.
+ * Created by Akriti on 11/11/2017
+ * Edited by Suyash
  */
 
 public class PlacementActivity extends  BaseActivity {
-    ExpandableListView expandableListView;
+
+    private final String url = "http://192.168.0.100/cseunited/placement.json"; //Temporary url for testing
+    private ExpandableListView expandableListView;
+    private ProgressDialog progressDialog;
+    private int lastExpandedPosition = -1;
+
+    List<String> batches = new ArrayList<>();
+    Map<String, Map<String, List<String>>> details = new HashMap<>();
+    Map<String, List<String>> cnames = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.placement_activity);
-        expandableListView=(ExpandableListView) findViewById(R.id.exp_listview);
-        List<String> Headings=new ArrayList<String>();
-        List<String> L1=new ArrayList<String>();
-        List<String> L2=new ArrayList<String>();
-        List<String> L3=new ArrayList<String>();
-        List<String> L4=new ArrayList<String>();
-        List<String> L5=new ArrayList<String>();
-        HashMap<String,List<String>> ChildList=new HashMap<String, List<String>>();
-        String heading_items[]=getResources().getStringArray(R.array.header_titles);
-        String l1[]=getResources().getStringArray(R.array.h1_items);
-        String l2[]=getResources().getStringArray(R.array.h2_items);
-        String l3[]=getResources().getStringArray(R.array.h3_items);
-        String l4[]=getResources().getStringArray(R.array.h4_items);
-        String l5[]=getResources().getStringArray(R.array.h5_items);
-        for(String title:heading_items)
-        {
-            Headings.add(title);
-        }
-        for(String title:l1)
-        {
-            L1.add(title);
-        }
-        for(String title:l2)
-        {
-            L2.add(title);
-        }
-        for(String title:l3)
-        {
-            L3.add(title);
-        }
-        for(String title:l4)
-        {
-            L4.add(title);
-        }
-        for(String title:l5)
-        {
-            L5.add(title);
-        }
-        ChildList.put(Headings.get(0),L1);
-        ChildList.put(Headings.get(1),L2);
-        ChildList.put(Headings.get(2),L3);
-        ChildList.put(Headings.get(3),L4);
-        ChildList.put(Headings.get(4),L5);
-        PlacementAdapter myAdapter=new PlacementAdapter(this,Headings,ChildList);
-        expandableListView.setAdapter(myAdapter);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.mymenu,menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        //Handle action bar item clicks here.The action bar will
-        //automatically handle clicks on the Home/Up button,so long
-        //as you specifify a parent activity in AndroidManifest.xml
-        int id=item.getItemId();
 
-        if(id==R.id.action_theme)
-            return true;
-        return super.onOptionsItemSelected(item);
+        //Inflating the layout with the drawer layout
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_placement, null, false);
+        mDrawer.addView(contentView, 0);
+
+        //Setting up the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Setting up hamburger icon
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        expandableListView = (ExpandableListView) findViewById(R.id.placement_expandable_list_view);
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if (lastExpandedPosition != -1 && groupPosition != lastExpandedPosition)
+                    expandableListView.collapseGroup(lastExpandedPosition);
+                lastExpandedPosition = groupPosition;
+            }
+        });
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+        volleyRequest();
+    }
+
+    private void volleyRequest(){
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                processJson(response);
+                progressDialog.cancel();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                progressDialog.cancel();
+                Toast.makeText(PlacementActivity.this, "Error fetching data from server...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        VolleyChannel.getInstance(this).addToRequestQueue(jsObjRequest, this);
+    }
+
+    private void processJson(JSONObject response){
+        try {
+            JSONArray placements = response.getJSONArray("placements");
+            for (int i=0;i<placements.length();i++){
+                JSONObject batch = placements.getJSONObject(i);
+                batches.add(batch.getString("batch"));
+                JSONArray c = batch.getJSONArray("details");
+                Map<String, List<String>> detail = new HashMap<>();
+                List<String> companies = new ArrayList<>();
+                for (int j=0;j<c.length();j++){
+                    JSONObject company = c.getJSONObject(j);
+                    String cname = company.getString("company");
+                    companies.add(cname);
+                    JSONArray n = company.getJSONArray("names");
+                    List<String> names = new ArrayList<>();
+                    for (int k=0;k<n.length();k++)
+                        names.add(n.getString(k));
+                    detail.put(cname, names);
+                }
+                cnames.put(batch.getString("batch"), companies);
+                details.put(batch.getString("batch"), detail);
+            }
+
+            expandableListView.setAdapter(new PlacementExpandableListAdapter(this, batches, cnames, details));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

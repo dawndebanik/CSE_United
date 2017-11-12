@@ -46,7 +46,7 @@ public class FacultyExpandableListAdapter extends BaseExpandableListAdapter {
 
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.faculty_expandable_list_item, null);
+            convertView = inflater.inflate(R.layout.faculty_expandable_list_child, null);
         }
 
         ImageView image = (ImageView) convertView.findViewById(R.id.faculty_image);
