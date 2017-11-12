@@ -59,6 +59,24 @@
                 android:text="Events"
                 android:layout_marginTop="20dp"/>
 
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/home_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_button"
+                android:textColor="@color/colorTextIcons"
+                android:text="Home"
+                android:layout_marginTop="20dp"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/placement_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_button"
+                android:textColor="@color/colorTextIcons"
+                android:text="Placement"
+                android:layout_marginTop="20dp"/>
+
         </android.support.v7.widget.LinearLayoutCompat>
 
     </android.support.v4.widget.NestedScrollView>

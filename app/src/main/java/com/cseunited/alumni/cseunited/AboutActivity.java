@@ -10,6 +10,7 @@ import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -64,8 +65,6 @@ public class AboutActivity extends BaseActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        volleyRequest();
-
         expandableListView = (ExpandableListView) findViewById(R.id.faculty_expandable_view);
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -76,6 +75,8 @@ public class AboutActivity extends BaseActivity {
                 lastExpandedPosition = groupPosition;
             }
         });
+
+        volleyRequest();
     }
 
     private void volleyRequest(){
@@ -89,6 +90,8 @@ public class AboutActivity extends BaseActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                progressDialog.cancel();
+                Toast.makeText(AboutActivity.this, "Error fetching data from server...", Toast.LENGTH_SHORT).show();
             }
         });
 

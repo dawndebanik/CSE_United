@@ -14,13 +14,13 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".DiscussActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity"
@@ -31,33 +31,33 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".UnitedDetailsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".QuestionDetailActivity"
             android:label="@string/title_activity_question_detail"
             android:parentActivityName=".DiscussActivity"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QueryPostActivity"
             android:label="@string/Post_Query"
             android:parentActivityName=".DiscussActivity"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait" />
         <activity android:name=".EventActivity"
             android:label="Events"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".PlacementActivity"
             android:label="Placements"
-            android:theme="@style/AppTheme">
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
