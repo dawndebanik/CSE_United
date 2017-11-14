@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class PlacementActivity extends  BaseActivity {
 
-    private final String url = "http://192.168.0.100/cseunited/placement.json"; //Temporary url for testing
+    private final String url = "http://suyashmittal.com/cseunited/placement.json"; //Temporary url for testing
     private ExpandableListView expandableListView;
     private ProgressDialog progressDialog;
     private int lastExpandedPosition = -1;
@@ -56,6 +56,9 @@ public class PlacementActivity extends  BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        //Selecting the option in navigation view
+        navigationView.getMenu().getItem(5).setChecked(true);
 
         expandableListView = (ExpandableListView) findViewById(R.id.placement_expandable_list_view);
 
