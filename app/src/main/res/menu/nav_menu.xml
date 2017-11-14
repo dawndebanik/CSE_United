@@ -18,20 +18,20 @@
             android:icon="@drawable/ic_menu_forum_24dp"
             android:title="@string/forum"/>
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_menu_profile_24dp"
-            android:title="@string/profile"/>
+            android:id="@+id/nav_achievement"
+            android:icon="@drawable/ic_menu_achievement_24dp"
+            android:title="@string/achievement" />
         <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_info_24dp"
-            android:title="@string/about_us" />
+            android:id="@+id/nav_placement"
+            android:icon="@drawable/ic_menu_handshake_24dp"
+            android:title="@string/settings"/>
         <item
             android:id="@+id/nav_facebook"
             android:icon="@drawable/ic_menu_facebook_24dp"
             android:title="@string/facebook"/>
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_settings_24dp"
-            android:title="@string/settings"/>
+            android:id="@+id/nav_website"
+            android:icon="@drawable/ic_menu_globe_24dp"
+            android:title="@string/website"/>
     </group>
 </menu>

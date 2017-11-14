@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class AboutActivity extends BaseActivity {
 
-    private final String url = "http://192.168.0.100/cseunited/faculty.json"; //Temporary url for testing
+    private final String url = "http://suyashmittal.com/cseunited/faculty.json"; //Temporary url for testing
 
     List<Pair<String, String>> names = new ArrayList<>();
     Map<String, Pair<List<String>, List<String>>> details = new HashMap<>();
@@ -60,6 +60,8 @@ public class AboutActivity extends BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        navigationView.getMenu().getItem(4).setChecked(true);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");

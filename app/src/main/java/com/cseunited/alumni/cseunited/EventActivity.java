@@ -26,5 +26,8 @@ public class EventActivity extends BaseActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        //Selecting the option in navigation view
+        navigationView.getMenu().getItem(1).setChecked(true);
     }
 }
