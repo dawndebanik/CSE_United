@@ -55,12 +55,13 @@
         <activity
             android:name=".EventActivity"
             android:label="Events"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PlacementActivity"
             android:label="Placements"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".GalleryActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".GalleryDetailActivity"></activity>
     </application>
 
 </manifest>
