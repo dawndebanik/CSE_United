@@ -14,13 +14,14 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".DiscussActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity"
@@ -32,7 +33,7 @@
         <activity
             android:name=".UnitedDetailsActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -51,14 +52,15 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait" />
-        <activity android:name=".EventActivity"
+        <activity
+            android:name=".EventActivity"
             android:label="Events"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".PlacementActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PlacementActivity"
             android:label="Placements"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".GalleryActivity"></activity>
     </application>
 
 </manifest>

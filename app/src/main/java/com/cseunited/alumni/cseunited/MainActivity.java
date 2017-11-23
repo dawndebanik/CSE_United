@@ -9,6 +9,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -55,6 +56,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         eventsBtn.setOnClickListener(this);
         homeBtn.setOnClickListener(this);
         placementBtn.setOnClickListener(this);
+        Button b1 = (Button) findViewById(R.id.test);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, GalleryActivity.class));
+            }
+        });
     }
 
     @Override
