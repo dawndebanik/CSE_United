@@ -42,10 +42,11 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     private void initializeActivitySelector(){
         activitySelector = new HashMap<>();
         activitySelector.put(R.id.nav_home, MainActivity.class);
-        activitySelector.put(R.id.nav_forum, DiscussActivity.class);
+        activitySelector.put(R.id.nav_forum, ComingSoonActivity.class);
         activitySelector.put(R.id.nav_achievement, AboutActivity.class);
         activitySelector.put(R.id.nav_placement, PlacementActivity.class);
-        activitySelector.put(R.id.nav_events, EventActivity.class);
+        activitySelector.put(R.id.nav_events, ComingSoonActivity.class);
+        activitySelector.put(R.id.nav_gallery, ComingSoonActivity.class);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

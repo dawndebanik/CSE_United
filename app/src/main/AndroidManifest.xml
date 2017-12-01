@@ -11,26 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- Main activity -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".DiscussActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity"
@@ -42,7 +43,7 @@
         <activity
             android:name=".UnitedDetailsActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -61,14 +62,15 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait" />
-        <activity android:name=".EventActivity"
+        <activity
+            android:name=".EventActivity"
             android:label="Events"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".PlacementActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".PlacementActivity"
             android:label="Placements"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ComingSoonActivity"></activity>
     </application>
 
 </manifest>
