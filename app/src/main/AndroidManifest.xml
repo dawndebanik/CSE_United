@@ -17,11 +17,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- Main activity -->
         <activity
@@ -47,7 +42,12 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".QuestionDetailActivity"
             android:label="@string/title_activity_question_detail"
@@ -70,8 +70,9 @@
             android:name=".PlacementActivity"
             android:label="Placements"
             android:screenOrientation="portrait" />
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".GalleryDetailActivity"></activity>
+        <activity android:name=".GalleryActivity"
+            android:label="Gallery" />
+        <activity android:name=".GalleryDetailActivity" />
     </application>
 
 </manifest>

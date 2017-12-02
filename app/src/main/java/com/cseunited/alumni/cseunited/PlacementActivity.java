@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class PlacementActivity extends  BaseActivity {
 
-    private final String url = "http://suyashmittal.com/cseunited/placement.json"; //Temporary url for testing
+    private final String url = "http://suyashmittal.000webhostapp.com/cseunited/placement.json"; //Temporary url for testing
     private ExpandableListView expandableListView;
     private ProgressDialog progressDialog;
     private int lastExpandedPosition = -1;
@@ -51,6 +51,7 @@ public class PlacementActivity extends  BaseActivity {
         //Setting up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("PLACEMENT");
 
         //Setting up hamburger icon
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

@@ -1,6 +1,7 @@
 package com.cseunited.alumni.cseunited;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,12 +42,14 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
      */
     private void initializeActivitySelector(){
         activitySelector = new HashMap<>();
-        activitySelector.put(R.id.nav_home, MainActivity.class);
-        activitySelector.put(R.id.nav_forum, ComingSoonActivity.class);
+
+        activitySelector.put(R.id.nav_home, HomeActivity.class);
+        activitySelector.put(R.id.nav_forum, DiscussActivity.class);
         activitySelector.put(R.id.nav_achievement, AboutActivity.class);
         activitySelector.put(R.id.nav_placement, PlacementActivity.class);
-        activitySelector.put(R.id.nav_events, ComingSoonActivity.class);
-        activitySelector.put(R.id.nav_gallery, ComingSoonActivity.class);
+        activitySelector.put(R.id.nav_events, EventActivity.class);
+        activitySelector.put(R.id.nav_gallery, GalleryActivity.class);
+        activitySelector.put(R.id.nav_achievement, AboutActivity.class);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -59,6 +62,14 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(this, target));
             this.finish();
         }
+        else if(item.getItemId()==R.id.nav_facebook){
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/cseunited/"));
+            startActivity(intent);
+        }
+        else if(item.getItemId()==R.id.nav_website){
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cseunited.com/"));
+            startActivity(intent);
+        }
         return true;
     }
 
@@ -69,10 +80,10 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-        if (this instanceof MainActivity)
+        if (this instanceof HomeActivity)
             this.finishAffinity();
         else if(this.isTaskRoot()){
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
             this.finish();
         }
     }
