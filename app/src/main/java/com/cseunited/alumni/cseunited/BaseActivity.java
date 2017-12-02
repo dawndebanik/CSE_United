@@ -42,6 +42,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
      */
     private void initializeActivitySelector(){
         activitySelector = new HashMap<>();
+
         activitySelector.put(R.id.nav_home, HomeActivity.class);
         activitySelector.put(R.id.nav_forum, DiscussActivity.class);
         activitySelector.put(R.id.nav_achievement, AboutActivity.class);
