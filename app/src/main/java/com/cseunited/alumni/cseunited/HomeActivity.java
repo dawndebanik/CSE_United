@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import java.sql.Time;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
@@ -19,9 +20,9 @@ import java.util.TimerTask;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private static ViewPager mPager;
-    private static int currentPage = 0;
+    private int currentPage = 0;
     private final List<Integer> images = Arrays.asList(R.drawable.slider_1, R.drawable.slider_2, R.drawable.slider_3, R.drawable.slider_4, R.drawable.slider_5);
-
+    private Timer swipeTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +63,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 mPager.setCurrentItem(currentPage++, true);
             }
         };
-        Timer swipeTimer = new Timer();
+        swipeTimer = new Timer();
         swipeTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -77,6 +78,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = new Intent(this, EventActivity.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        swipeTimer.cancel();
     }
 }
 
