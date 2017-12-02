@@ -1,6 +1,6 @@
 <resources>
     <!--Strings common throughout the APP-->
-    <string name="app_name">CSE TISL</string>
+    <string name="app_name">CSE Techno India</string>
 
     <!--Strings for navigation drawer-->
     <string name="home">home.c</string>
@@ -143,5 +143,8 @@
     <string name="string_achievements">achievements</string>
     <string name="Splash_CseUnited">CSE UNITED</string>
 
-    <string name="coming_soon">Sorry. This feature has not been added yet. Please bear with us.</string>
+    <string name="coming_soon">"Sorry.\nThis feature has not been added yet.\nPlease bear with us."</string>
+    <string name="cse_united_details">
+        "Venue:\nTechno India, Salt Lake College Ground followed by poolside buffet.\n\nDate:\nSaturday, 23rd December, 2017.\n\nTime:\n12 noon onwards."
+    </string>
 </resources>

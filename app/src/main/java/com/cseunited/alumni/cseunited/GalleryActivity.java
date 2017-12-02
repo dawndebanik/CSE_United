@@ -32,7 +32,7 @@ public class GalleryActivity extends BaseActivity implements GalleryAdapter.Imag
         //Setting up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("GALLERY");
+        getSupportActionBar().setTitle("Gallery");
 
         //Setting up hamburger icon
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

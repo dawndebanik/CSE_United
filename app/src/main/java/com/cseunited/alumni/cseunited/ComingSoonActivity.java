@@ -8,6 +8,7 @@ public class ComingSoonActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.coming_soon);
+        setContentView(R.layout.activity_coming_soon);
+        //getSupportActionBar().setTitle("Coming Soon");
     }
 }

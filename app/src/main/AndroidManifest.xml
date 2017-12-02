@@ -66,6 +66,8 @@
             android:name=".EventActivity"
             android:label="Events"
             android:screenOrientation="portrait" />
+        <activity android:name=".ComingSoonActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PlacementActivity"
             android:label="Placements"

@@ -34,7 +34,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //Setting up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("HOME");
+        getSupportActionBar().setTitle("Home");
 
         //Setting up hamburger icon
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -68,7 +68,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             public void run() {
                 handler.post(Update);
             }
-        }, 2000, 2000);
+        }, 3500, 3500);
     }
 
     @Override

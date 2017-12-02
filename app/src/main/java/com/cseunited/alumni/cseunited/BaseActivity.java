@@ -44,11 +44,11 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         activitySelector = new HashMap<>();
 
         activitySelector.put(R.id.nav_home, HomeActivity.class);
-        activitySelector.put(R.id.nav_forum, DiscussActivity.class);
+        activitySelector.put(R.id.nav_forum, ComingSoonActivity.class);
         activitySelector.put(R.id.nav_achievement, AboutActivity.class);
         activitySelector.put(R.id.nav_placement, PlacementActivity.class);
         activitySelector.put(R.id.nav_events, EventActivity.class);
-        activitySelector.put(R.id.nav_gallery, GalleryActivity.class);
+        activitySelector.put(R.id.nav_gallery, ComingSoonActivity.class);
         activitySelector.put(R.id.nav_achievement, AboutActivity.class);
     }
     @Override
