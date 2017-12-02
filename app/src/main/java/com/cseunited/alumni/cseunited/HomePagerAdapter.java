@@ -21,7 +21,7 @@ public class HomePagerAdapter extends PagerAdapter {
 
     public HomePagerAdapter(Context context, List<Integer> images) {
         this.context = context;
-        this.images=images;
+        this.images = images;
         inflater = LayoutInflater.from(context);
     }
 
@@ -38,8 +38,8 @@ public class HomePagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
-        View myImageLayout = inflater.inflate(R.layout.home_slide, view,false);
-        ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.home_viewpager_image);
+        View myImageLayout = inflater.inflate(R.layout.home_slider, view,false);
+        ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.home_slider_image);
         myImage.setImageResource(images.get(position));
         view.addView(myImageLayout, 0);
         return myImageLayout;

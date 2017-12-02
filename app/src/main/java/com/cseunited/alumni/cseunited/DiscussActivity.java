@@ -26,12 +26,13 @@ public class DiscussActivity extends BaseActivity implements DiscussAdapter.Item
 
         //Inflating the layout with the drawer layout
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.activity_discuss_main, null, false);
+        View contentView = inflater.inflate(R.layout.coming_soon, null, false);
         mDrawer.addView(contentView, 0);
 
         //Setting up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("FORUM");
 
         //Setting up hamburger icon
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -41,18 +42,18 @@ public class DiscussActivity extends BaseActivity implements DiscussAdapter.Item
         //Selecting the option in navigation view
         navigationView.getMenu().getItem(3).setChecked(true);
 
-        discussionView = (RecyclerView) findViewById(R.id.recycler);
-        DiscussAdapter adapter = new DiscussAdapter(getApplicationContext(), fetchListOfPosts());
-        adapter.setClickListener(this);
-        discussionView.setAdapter(adapter);
-        discussionView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        addButton = (FloatingActionButton) findViewById(R.id.addButton);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onAddButtonClick(view);
-            }
-        });
+//        discussionView = (RecyclerView) findViewById(R.id.recycler);
+//        DiscussAdapter adapter = new DiscussAdapter(getApplicationContext(), fetchListOfPosts());
+//        adapter.setClickListener(this);
+//        discussionView.setAdapter(adapter);
+//        discussionView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//        addButton = (FloatingActionButton) findViewById(R.id.addButton);
+//        addButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onAddButtonClick(view);
+//            }
+//        });
     }
 
     /**

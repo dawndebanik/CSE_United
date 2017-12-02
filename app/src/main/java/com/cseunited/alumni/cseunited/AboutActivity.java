@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class AboutActivity extends BaseActivity {
 
-    private final String url = "http://suyashmittal.com/cseunited/faculty.json"; //Temporary url for testing
+    private final String url = "http://suyashmittal.000webhostapp.com/cseunited/faculty.json"; //Temporary url for testing
 
     List<Pair<String, String>> names = new ArrayList<>();
     Map<String, Pair<List<String>, List<String>>> details = new HashMap<>();
@@ -55,6 +55,7 @@ public class AboutActivity extends BaseActivity {
         //Setting up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("ACHIEVEMENTS");
 
         //Setting up hamburger icon
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
