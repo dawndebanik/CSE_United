@@ -118,8 +118,9 @@
         "This was the first alumni meet organised by the CSE Department of Techno India. The meet proved to be a success, and we had quite a few alumni members joining us to guide and inspire the first years. A Q-n-A session on various aspects of corporate life and academics was followed by fun events organised by the alumni members themselves. Students of the department also presented their take on the alumni website and the group led by Soumajit Biswas was declared the winner. The event came to an end with a light-hearted game of tug-of-war, with students of the first, second, third and fourth years as well as one consisting of members of the Alumni competing for the title."
     </string>
     <string name="description_cse_2012">
-        "By 2012, CSE United had become a day everyone looks forward to. The second ever CSE Unted was held in late 2012 and consisted of the usual fare – songs, dances, games, etc. The events of the day included: Dance Performances by Russa and Smita, Deepika, Prema, Saurav Kothari
+        "By 2012, CSE United had become a day everyone looks forward to. The second ever CSE Unted was held in late 2012 and consisted of the usual fare – songs, dances, games, etc. The events of the day included:
 
+        Dance Performances by Russa and Smita, Deepika, Prema, Saurav Kothari
         A group song by Jyotirmoy and his group.
         A recitation by Sayan, a fresher at the time.
         A recitation by Ritesh.
@@ -138,13 +139,20 @@
         Interaction with first years.
         Songs by CKB sir and Poulami ma'am."
     </string>
+    <string name="description_cse_2017">
+        "Venue:\nTechno India, Salt Lake College Ground followed by poolside buffet.\n\nDate:\nSaturday, 23rd December, 2017.\n\nTime:\n12 noon onwards."
+    </string>
+    <string name="united_title_2011">"CSE United 2011"</string>
+    <string name="united_title_2012">"CSE United 2012"</string>
+    <string name="united_title_2013">"CSE Alumni Meet"</string>
+    <string name="united_title_2014">"CSE United and Alumni Meet 2014"</string>
+    <string name="united_title_2015">"CSE United 2015"</string>
+    <string name="united_title_2017">"CSE United 2017"</string>
+
     <string name="Post_Query">Post Query</string>
     <string name="title_activity_about">About</string>
     <string name="string_achievements">achievements</string>
     <string name="Splash_CseUnited">CSE UNITED</string>
 
     <string name="coming_soon">"Sorry.\nThis feature has not been added yet.\nPlease bear with us."</string>
-    <string name="cse_united_details">
-        "Venue:\nTechno India, Salt Lake College Ground followed by poolside buffet.\n\nDate:\nSaturday, 23rd December, 2017.\n\nTime:\n12 noon onwards."
-    </string>
 </resources>
