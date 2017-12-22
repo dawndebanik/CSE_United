@@ -26,7 +26,7 @@ public class DiscussActivity extends BaseActivity implements DiscussAdapter.Item
 
         //Inflating the layout with the drawer layout
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.coming_soon, null, false);
+        View contentView = inflater.inflate(R.layout.activity_coming_soon, null, false);
         mDrawer.addView(contentView, 0);
 
         //Setting up the toolbar

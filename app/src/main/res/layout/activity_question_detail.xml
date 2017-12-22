@@ -13,6 +13,6 @@
     <include layout="@layout/content_question_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"/>
+        android:layout_marginTop="?android:attr/actionBarSize"/>
 
 </android.support.design.widget.CoordinatorLayout>

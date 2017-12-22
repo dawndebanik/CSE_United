@@ -38,8 +38,8 @@ public class GalleryDetailActivity extends AppCompatActivity {
         List<String> labels= new ArrayList<>();
         for(int i=0;i<120;i++)
             labels.add("DUMMY TEXT");
-        GalleryAdapter adapter = new GalleryAdapter(this, urls, labels);
-        galleryView.setAdapter(adapter);
-        galleryView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+//        GalleryAdapter adapter = new GalleryAdapter(this, urls, labels);
+//        galleryView.setAdapter(adapter);
+//        galleryView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
     }
 }

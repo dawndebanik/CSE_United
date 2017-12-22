@@ -8,20 +8,31 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
-import java.sql.Time;
-import java.util.Arrays;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
+    private final String url = "http://suyashmittal.000webhostapp.com/cseunited/home_slider.json"; //Temporary url for testing
+
     private static ViewPager mPager;
     private int currentPage = 0;
-    private final List<Integer> images = Arrays.asList(R.drawable.slider_1, R.drawable.slider_2, R.drawable.slider_3, R.drawable.slider_4, R.drawable.slider_5);
+    private final List<String> images = new ArrayList<>();
     private Timer swipeTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +59,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         CardView cardView = (CardView) findViewById(R.id.card_view);
         cardView.setOnClickListener(this);
 
-        init();
+        volleyRequest();
     }
 
     private void init() {
@@ -70,6 +81,34 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 handler.post(Update);
             }
         }, 3500, 3500);
+    }
+
+    private void volleyRequest(){
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                processJson(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Toast.makeText(HomeActivity.this, "Error fetching data from server...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        VolleyChannel.getInstance(this).addToRequestQueue(jsObjRequest, this);
+    }
+
+    private void processJson(JSONObject response){
+        try{
+            JSONArray images = response.getJSONArray("images");
+            for(int i=0;i<images.length();i++)
+                this.images.add(images.getString(i));
+            init();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

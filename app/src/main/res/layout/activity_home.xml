@@ -52,6 +52,30 @@
                     android:src="@drawable/cse_united_2017"
                     android:layout_gravity="top"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="23rd December, 2017"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_large"
+                    android:textColor="@color/colorPrimary"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Techno India, Salt Lake"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_large"
+                    android:textColor="@color/colorPrimary"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="College Grounds"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_large"
+                    android:textColor="@color/colorPrimary"/>
+
             </android.support.v7.widget.LinearLayoutCompat>
 
         </android.support.v7.widget.CardView>
