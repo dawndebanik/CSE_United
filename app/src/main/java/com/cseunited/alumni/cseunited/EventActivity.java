@@ -40,25 +40,28 @@ public class EventActivity extends BaseActivity {
         LinearLayout linearLayout = (LinearLayout) toFill.findViewById(R.id.event_linear);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         int[] banners = {R.drawable.cse_united_2017,
+                R.drawable.cse_united_2016,
                 R.drawable.cse_united_2015,
                 R.drawable.cse_united_2014,
                 R.drawable.cse_united_2013,
                 R.drawable.cse_united_2012,
                 R.drawable.cse_united_2011};
         int[] description = {R.string.description_cse_2017,
+                R.string.description_cse_2016,
                 R.string.description_cse_2015,
                 R.string.description_cse_2014,
                 R.string.description_cse_2013,
                 R.string.description_cse_2012,
                 R.string.description_cse_2011};
         int[] title = {R.string.united_title_2017,
+                R.string.united_title_2016,
                 R.string.united_title_2015,
                 R.string.united_title_2014,
                 R.string.united_title_2013,
                 R.string.united_title_2012,
                 R.string.united_title_2011,
         };
-        for (int i=0;i<6;i++){
+        for (int i=0;i<7;i++){
             View event = inflater.inflate(R.layout.event_item, null, false);
             ((ImageView)event.findViewById(R.id.event_banner)).setImageResource(banners[i]);
             ((TextView)event.findViewById(R.id.event_details)).setText(getString(description[i]));

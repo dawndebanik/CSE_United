@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -15,11 +17,11 @@ import java.util.List;
 
 public class HomePagerAdapter extends PagerAdapter {
 
-    private List<Integer> images;
+    private List<String> images;
     private LayoutInflater inflater;
     private Context context;
 
-    public HomePagerAdapter(Context context, List<Integer> images) {
+    public HomePagerAdapter(Context context, List<String> images) {
         this.context = context;
         this.images = images;
         inflater = LayoutInflater.from(context);
@@ -40,7 +42,7 @@ public class HomePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup view, int position) {
         View myImageLayout = inflater.inflate(R.layout.home_slider, view,false);
         ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.home_slider_image);
-        myImage.setImageResource(images.get(position));
+        Picasso.with(context).load(images.get(position)).placeholder(R.drawable.placeholder).into(myImage);
         view.addView(myImageLayout, 0);
         return myImageLayout;
     }

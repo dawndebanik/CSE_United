@@ -21,15 +21,13 @@ import java.util.List;
  */
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageHolder>{
 
-    private List<URL> imageList = Collections.emptyList();
-    private List<String> labels = Collections.emptyList();
+    private List<String> imageList = Collections.emptyList();
     private ImageClickListener imageClickListener;
     private LayoutInflater inflater;
     private Context context;
 
-    GalleryAdapter(Context context, List<URL> imageList, List<String> labels){
+    GalleryAdapter(Context context, List<String> imageList){
         this.imageList = imageList;
-        this.labels = labels;
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -45,8 +43,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageHol
     @Override
     public void onBindViewHolder(ImageHolder holder, int position) {
         Picasso.with(context.getApplicationContext()).load(imageList.get(position).toString()).placeholder(R.drawable.placeholder).into(holder.image);
-        //holder.image.setImageResource(R.drawable.ud_sir);
-        holder.label.setText(labels.get(position));
     }
 
     @Override
@@ -57,7 +53,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageHol
 
     class ImageHolder extends RecyclerView.ViewHolder{
         ImageView image;
-        TextView label;
         ImageHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +63,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageHol
                 }
             });
             this.image = (ImageView) itemView.findViewById(R.id.gallery_item);
-            this.label = (TextView) itemView.findViewById(R.id.gallery_item_label);
         }
     }
     public interface ImageClickListener{
