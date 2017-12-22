@@ -1,6 +1,7 @@
 package com.cseunited.alumni.cseunited;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,13 +11,26 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Calendar;
 
@@ -34,11 +48,17 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     private TextInputEditText textInputEditTextPassword;
     private TextInputEditText textInputEditTextConfirmPassword;
     private TextInputEditText textInputEditTextDOB;
+    private TextInputEditText textInputEditTextBatch;
+    private TextInputEditText employer;
+    private TextInputEditText position;
 
+    private CheckBox terms;
+    private RadioGroup radioGroupGender;
+    private TextInputEditText phoneNumber;
     private AppCompatButton appCompatButtonRegister;
     private AppCompatTextView appCompatTextViewLoginLink;
 
-    private Spinner role;
+    //private Spinner role;
     private Spinner qualification;
 
     @Override
@@ -72,7 +92,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         textInputLayoutConfirmPassword = (TextInputLayout) findViewById(R.id.textInputLayoutConfirmPassword);
-        textInputLayoutBatch = (TextInputLayout) findViewById(R.id.textInputLayoutBatch);
+
         textInputLayoutQual = (TextInputLayout) findViewById(R.id.textInputLayoutQual);
         textInputLayoutQual.setVisibility(View.GONE);
 
@@ -81,16 +101,22 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
         textInputEditTextConfirmPassword = (TextInputEditText) findViewById(R.id.textInputEditTextConfirmPassword);
         textInputEditTextDOB = (TextInputEditText) findViewById(R.id.textInputEditTextDOB);
+        employer = (TextInputEditText) findViewById(R.id.institution);
+        position = (TextInputEditText) findViewById(R.id.position);
 
+        radioGroupGender = (RadioGroup)findViewById(R.id.gender);
+        phoneNumber = (TextInputEditText) findViewById(R.id.phoneNumber);
+        textInputEditTextBatch = (TextInputEditText) findViewById(R.id.textInputEditTextBatch);
+        terms = (CheckBox) findViewById(R.id.terms);
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
 
         appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
 
-        role = (Spinner) findViewById(R.id.spinnerRole);
+        /*role = (Spinner) findViewById(R.id.spinnerRole);
         ArrayAdapter<CharSequence> roles = ArrayAdapter.createFromResource(this,
                 R.array.role, android.R.layout.simple_spinner_item);
         roles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        role.setAdapter(roles);
+        role.setAdapter(roles);*/
 
         qualification = (Spinner) findViewById(R.id.spinnerQual);
         ArrayAdapter<CharSequence> qualifications = ArrayAdapter.createFromResource(this,
@@ -105,7 +131,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     private void initListeners() {
         appCompatButtonRegister.setOnClickListener(this);
         appCompatTextViewLoginLink.setOnClickListener(this);
-        role.setOnItemSelectedListener(this);
+        //role.setOnItemSelectedListener(this);
         qualification.setOnItemSelectedListener(this);
         textInputEditTextDOB.setOnClickListener(this);
     }
@@ -129,8 +155,11 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.appCompatButtonRegister:
                 // Verification and Web Request
-                Toast.makeText(this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                finish();
+                try {
+                    uploadToServer();
+                }catch (JSONException e){
+                    Toast.makeText(getApplicationContext(), LoginActivity.errorUnknown, Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.appCompatTextViewLoginLink:
@@ -163,12 +192,12 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) parent;
-        if(spinner.getId() == R.id.spinnerRole) {
+        /*if(spinner.getId() == R.id.spinnerRole) {
             if (position == 1)
                 textInputLayoutBatch.setVisibility(View.GONE);
             else
                 textInputLayoutBatch.setVisibility(View.VISIBLE);
-        }
+        }*/
         if(spinner.getId() == R.id.spinnerQual){
             if (position == 3)
                 textInputLayoutQual.setVisibility(View.VISIBLE);
@@ -181,4 +210,65 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    private void uploadToServer()throws JSONException{
+        final String registerUrl = "http:// alumni.cseunited.com/users/register";
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        final String successMessage = "You have been successfully registered!";
+        final String errorFailure = "Couldn't register you. Please check your details carefully.";
+
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Registering you...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+
+        int terms = (this.terms.isChecked())?1:0;
+        String gender;
+        if(radioGroupGender.getCheckedRadioButtonId()!=-1)
+            gender = ((RadioButton)radioGroupGender.findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
+        else
+            gender = "";
+        JSONObject toPost = new JSONObject()
+                .put("email", textInputEditTextEmail.getText())
+                .put("password", textInputEditTextConfirmPassword.getText())
+                .put("name", textInputEditTextName.getText())
+                .put("batch", textInputEditTextBatch.getText())
+                .put("gender", gender)
+                .put("mob", phoneNumber.getText())
+                .put("qual", qualification.getSelectedItem().toString())
+                .put("employer", employer.getText())
+                .put("position", position.getText())
+                .put("dob", textInputEditTextDOB.getText())
+                .put("terms", terms);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, registerUrl, toPost,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if (response.getInt(LoginActivity.statusTag) == 1) {
+                                Toast.makeText(getApplicationContext(), successMessage, Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), errorFailure, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        progressDialog.cancel();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Toast.makeText(getApplicationContext(), LoginActivity.errorUnknown, Toast.LENGTH_SHORT).show();
+                        progressDialog.cancel();
+                    }
+                });
+        request.setTag(this);
+        VolleyChannel.getInstance(this).getRequestQueue().add(request);
+        Log.d("JSON", toPost.toString());
+    }
+
 }
