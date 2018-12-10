@@ -23,6 +23,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 /**
  * Created by Suyash on 10/27/2017
  */
@@ -33,14 +36,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextInputEditText passwordView;
     private AppCompatButton loginBtn;
     private AppCompatTextView registerText;
-    private static final String urlLogin = "http://alumni.cseunited.com/users/login";
+    private static final String urlLogin = "http://suyashmittal.000webhostapp.com/csealumni/users/login";
     static final String statusTag = "statusCode";
     static final String errorUnknown = "Oops! An error was encountered.";
-    static final String errorInvalidDetails = "Sorry. Incorrect credentials.";
+    static final String errorInvalidDetails = "Failed to connect to server, please try after some time.";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(LoginActivity.this, DiscussActivity.class));
+        }
 
         //Inflating the layout with the drawer layout
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -82,12 +90,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         if(v.getId() == R.id.login_btn){
             //validate();
             String email = emailView.getText().toString();
+            if(!isValidEmail(email)){
+                emailView.setError("Invalid Email");
+            }
             String password = passwordView.getText().toString();
-            password = new HashMaker("SHA-256").getHash(password);
+//            if (!isValidPassword(password)) {
+//                passwordView.setError("Invalid Password");
+//            }
             //Do the web thing
-
             try{
-                uploadToServer(email, password);
+                authenticate(email, password);
             }catch (JSONException e){
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(), errorInvalidDetails, Toast.LENGTH_SHORT).show();
@@ -99,13 +111,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    /**
-     * Method used to validate the inputs.
-     */
-    private void validate(){
-
-    }
-    private void uploadToServer(String email, String password)throws JSONException{
+    // Method to authenticate the credentials
+    private void authenticate(String email, String password)throws JSONException{
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Logging you in...");
@@ -113,6 +120,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         progressDialog.show();
 
         JSONObject toPost = new JSONObject().put("email", email).put("password", password);
+        Log.e("Data", toPost.toString());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, urlLogin, toPost,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -120,6 +128,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         Log.d("JSON reply", response.toString());
                         try {
                             if(response.getInt(statusTag)==1){
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(emailView.getText().toString(), passwordView.getText().toString());
                                 startActivity(new Intent(LoginActivity.this, DiscussActivity.class));
                             }
                             else{
@@ -142,5 +151,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         request.setTag(this);
         VolleyChannel channel = VolleyChannel.getInstance(this);
         channel.getRequestQueue().add(request);
+    }
+
+    // Validation functions
+    private boolean isValidEmail(String email) {
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    private boolean isValidPassword(String pass) {
+        return pass != null && pass.length() > 6;
     }
 }

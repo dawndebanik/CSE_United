@@ -11,12 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,7 +30,7 @@ import java.util.TimerTask;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
-    private final String url = "http://suyashmittal.000webhostapp.com/cseunited/home_slider.json"; //Temporary url for testing
+    private final String url = "http://cseunited.com/app/home_slider.json";
 
     private static ViewPager mPager;
     private int currentPage = 0;
@@ -57,6 +59,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         navigationView.getMenu().getItem(0).setChecked(true);
 
         CardView cardView = (CardView) findViewById(R.id.card_view);
+        ImageView banner = (ImageView) findViewById(R.id.home_event_banner);
+        Picasso.with(this).load("http://cseunited.com/img/event-2017.jpg").placeholder(R.drawable.placeholder).into(banner);
         cardView.setOnClickListener(this);
 
         volleyRequest();

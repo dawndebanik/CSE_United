@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class AboutActivity extends BaseActivity {
 
-    private final String url = "http://suyashmittal.000webhostapp.com/cseunited/faculty.json"; //Temporary url for testing
+    private final String url = "http://cseunited.com/app/faculty.json"; //Temporary url for testing
 
     List<Pair<String, String>> names = new ArrayList<>();
     Map<String, Pair<List<String>, List<String>>> details = new HashMap<>();

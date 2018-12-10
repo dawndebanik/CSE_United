@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class EventActivity extends BaseActivity {
 
     @Override
@@ -39,13 +41,13 @@ public class EventActivity extends BaseActivity {
     private void fillView(LayoutInflater inflater, View toFill){
         LinearLayout linearLayout = (LinearLayout) toFill.findViewById(R.id.event_linear);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        int[] banners = {R.drawable.cse_united_2017,
-                R.drawable.cse_united_2016,
-                R.drawable.cse_united_2015,
-                R.drawable.cse_united_2014,
-                R.drawable.cse_united_2013,
-                R.drawable.cse_united_2012,
-                R.drawable.cse_united_2011};
+        String[] banners = {"http://cseunited.com/img/event-2017.jpg",
+                "http://cseunited.com/img/event-2016.jpg",
+                "http://cseunited.com/img/event-2015.jpg",
+                "http://cseunited.com/img/event-2014.jpg",
+                "http://cseunited.com/img/event-2013.jpg",
+                "http://cseunited.com/img/event-2012.jpg",
+                "http://cseunited.com/img/event-2011.jpg"};
         int[] description = {R.string.description_cse_2017,
                 R.string.description_cse_2016,
                 R.string.description_cse_2015,
@@ -63,7 +65,8 @@ public class EventActivity extends BaseActivity {
         };
         for (int i=0;i<7;i++){
             View event = inflater.inflate(R.layout.event_item, null, false);
-            ((ImageView)event.findViewById(R.id.event_banner)).setImageResource(banners[i]);
+            ImageView image = (ImageView)event.findViewById(R.id.event_banner);
+            Picasso.with(this).load(banners[i]).placeholder(R.drawable.placeholder).into(image);
             ((TextView)event.findViewById(R.id.event_details)).setText(getString(description[i]));
             ((TextView)event.findViewById(R.id.event_title)).setText(getString(title[i]));
             linearLayout.addView(event);

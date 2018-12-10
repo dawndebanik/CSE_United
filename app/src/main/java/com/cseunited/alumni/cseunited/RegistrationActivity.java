@@ -3,12 +3,15 @@ package com.cseunited.alumni.cseunited;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -52,7 +55,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     private TextInputEditText employer;
     private TextInputEditText position;
 
-    private CheckBox terms;
+    private AppCompatCheckBox terms;
     private RadioGroup radioGroupGender;
     private TextInputEditText phoneNumber;
     private AppCompatButton appCompatButtonRegister;
@@ -64,6 +67,11 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(RegistrationActivity.this, DiscussActivity.class));
+        }
 
         //Inflating the layout with the drawer layout
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -107,7 +115,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         radioGroupGender = (RadioGroup)findViewById(R.id.gender);
         phoneNumber = (TextInputEditText) findViewById(R.id.phoneNumber);
         textInputEditTextBatch = (TextInputEditText) findViewById(R.id.textInputEditTextBatch);
-        terms = (CheckBox) findViewById(R.id.terms);
+        terms = (AppCompatCheckBox) findViewById(R.id.appCompatCheckboxTerms);
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
 
         appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
@@ -158,6 +166,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                 try {
                     uploadToServer();
                 }catch (JSONException e){
+                    Log.e("Error: ", e.toString());
                     Toast.makeText(getApplicationContext(), LoginActivity.errorUnknown, Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -210,11 +219,12 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
     private void uploadToServer()throws JSONException{
-        final String registerUrl = "http:// alumni.cseunited.com/users/register";
+        final String registerUrl = "http://alumni.cseunited.com/users/register";
         final ProgressDialog progressDialog = new ProgressDialog(this);
         final String successMessage = "You have been successfully registered!";
-        final String errorFailure = "Couldn't register you. Please check your details carefully.";
+        final String errorFailure = "Failed to connect to server, please try after some time.";
 
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Registering you...");
@@ -247,7 +257,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                         try {
                             if (response.getInt(LoginActivity.statusTag) == 1) {
                                 Toast.makeText(getApplicationContext(), successMessage, Toast.LENGTH_SHORT).show();
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(textInputEditTextEmail.getText().toString(), textInputEditTextPassword.getText().toString());
                                 finish();
+                                startActivity(new Intent(RegistrationActivity.this, DiscussActivity.class));
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), errorFailure, Toast.LENGTH_SHORT).show();

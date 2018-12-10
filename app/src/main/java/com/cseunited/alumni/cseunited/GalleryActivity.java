@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 public class GalleryActivity extends BaseActivity implements GalleryAdapter.ImageClickListener {
     RecyclerView galleryView;
     Map<View, String> gallerySelector;
-    String url = "http://suyashmittal.000webhostapp.com/cseunited/gallery.json";
+    String url = "http://alumni.cseunited.com/gallery/getAllImagesJSON";
     ProgressDialog progressDialog;
 
     @Override
@@ -65,6 +66,7 @@ public class GalleryActivity extends BaseActivity implements GalleryAdapter.Imag
             @Override
             public void onResponse(JSONObject response) {
                 initGalleryView(response);
+                Log.v("Response ", response.toString());
                 progressDialog.cancel();
             }
         }, new Response.ErrorListener() {
@@ -83,9 +85,11 @@ public class GalleryActivity extends BaseActivity implements GalleryAdapter.Imag
         galleryView = (RecyclerView) findViewById(R.id.gallery_recycler);
         List<String> urls = new ArrayList<>();
         try{
-            JSONArray images = response.getJSONArray("images");
+            JSONArray images = response.getJSONArray("urls");
             for(int i=0;i<images.length();i++){
-                urls.add(images.getString(i));
+                String image = images.getString(i);
+                image = image.replace("\\", "");
+                urls.add(image);
             }
         }catch (Exception e){
             e.printStackTrace();
